@@ -1,2 +1,2 @@
 # ignores all files in the build folder
-build/
+*_buil?/
