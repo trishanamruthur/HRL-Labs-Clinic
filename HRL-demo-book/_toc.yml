@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: interactive-plots
 - file: images-and-links
+- file: quizzes
