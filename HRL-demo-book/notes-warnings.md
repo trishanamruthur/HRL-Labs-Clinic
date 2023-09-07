@@ -4,21 +4,21 @@ This is a small sample of how we would embed notes and warnings to make the note
 
 
 ```{note}
-Here is a note!
+Possible notes
 ```
 
 ```{warning}
-Here is a warning!
+Possible warning message
 ```
 
 We can also create our own tips/notes:
 
 ```{admonition} Read Next
-Link1
+Link
 
 ```
 
 `````{admonition} Further Reading on this topic
 :class: tip
-Link 2
+Link 
 `````
