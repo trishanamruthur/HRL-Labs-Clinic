@@ -1,0 +1,1 @@
+# 6. Larger systems of quantum dots

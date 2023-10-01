@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: 1-loading-and-unloading-single-dot
+  sections:
+    - file: 1-1-loading-unloading-animation
+    - file: 1-2-sensing-dot
+- file: 2-classical-schematic-linear-transport-double-quantum-dots
+  sections:
+    - file: 2-1-equations-governing-addition-energies
+    - file: 2-2-stability-diagram
+- file: 3-quantum-regime-double-quantum-dots
+  sections:
+    - file: 3-1-allowed-energy-levels
+- file: 4-sensing-dot
+- file: 5-triple-quantum-dot
+- file: 6-larger-systems-quantum-dots
+  sections:
+    - file: 6-1-pairwise-stability-diagrams
