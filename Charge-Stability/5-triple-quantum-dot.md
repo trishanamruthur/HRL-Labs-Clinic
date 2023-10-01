@@ -1,1 +1,0 @@
-# 5. Triple Quantum Dot

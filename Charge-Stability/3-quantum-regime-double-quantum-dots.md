@@ -1,1 +1,0 @@
-# 3. Quantum regime for double quantum dots

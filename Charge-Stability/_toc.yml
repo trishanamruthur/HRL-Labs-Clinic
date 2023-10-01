@@ -7,16 +7,20 @@ chapters:
 - file: 1-loading-and-unloading-single-dot
   sections:
     - file: 1-1-loading-unloading-animation
-    - file: 1-2-sensing-dot
-- file: 2-classical-schematic-linear-transport-double-quantum-dots
+      sections:
+        - file: 1-1-1-electron tunneling
+- file: 2-sensing-dot
   sections:
-    - file: 2-1-equations-governing-addition-energies
-    - file: 2-2-stability-diagram
-- file: 3-quantum-regime-double-quantum-dots
+    - file: 2-1-capacitive-coupling
+      sections:
+        - file: 2-1-1-equations-governing-addition-energies
+    - file: 2-2-measurement-amplifier-readout
+- file: 3-classical-schematic-linear-transport-double-quantum-dots
   sections:
-    - file: 3-1-allowed-energy-levels
-- file: 4-sensing-dot
-- file: 5-triple-quantum-dot
-- file: 6-larger-systems-quantum-dots
+    - file: 3-1-stability-diagram-demonstration
+    - file: 3-2-quantum-regime-double-quantum-dots
+      sections:
+        - file: 3-2-1-allowed-energy-levels
+- file: 4-triple-quantum-dot
   sections:
-    - file: 6-1-pairwise-stability-diagrams
+    - file: 4-1-pairwise-stability-diagrams
