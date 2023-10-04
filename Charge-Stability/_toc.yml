@@ -15,12 +15,7 @@ chapters:
       sections:
         - file: 2-1-1-equations-governing-addition-energies
     - file: 2-2-measurement-amplifier-readout
-- file: 3-classical-schematic-linear-transport-double-quantum-dots
-  sections:
-    - file: 3-1-stability-diagram-demonstration
-    - file: 3-2-quantum-regime-double-quantum-dots
-      sections:
-        - file: 3-2-1-allowed-energy-levels
+- file: 3-double-dots
 - file: 4-triple-quantum-dot
   sections:
     - file: 4-1-pairwise-stability-diagrams

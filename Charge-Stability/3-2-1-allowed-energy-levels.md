@@ -1,1 +1,0 @@
-# 3.2.1 Visualizing how the allowed energy levels discretize the conditions in which current can flow through the dot
