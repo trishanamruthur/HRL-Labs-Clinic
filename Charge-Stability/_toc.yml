@@ -5,10 +5,6 @@ format: jb-book
 root: intro
 chapters:
 - file: 1-loading-and-unloading-single-dot
-  sections:
-    - file: 1-1-loading-unloading-animation
-      sections:
-        - file: 1-1-1-electron tunneling
 - file: 2-sensing-dot
   sections:
     - file: 2-1-capacitive-coupling
