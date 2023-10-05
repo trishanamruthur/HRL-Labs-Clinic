@@ -8,5 +8,3 @@ chapters:
 - file: 2-sensing-dot
 - file: 3-double-dots
 - file: 4-triple-quantum-dot
-  sections:
-    - file: 4-1-pairwise-stability-diagrams
