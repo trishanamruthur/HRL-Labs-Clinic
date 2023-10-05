@@ -8,5 +8,4 @@ chapters:
 - file: images-and-links
 - file: quizzes
 - file: video-embeds
-- file: notes-warnings.md
-- file: bloch-sphere
+- file: notes-warnings
