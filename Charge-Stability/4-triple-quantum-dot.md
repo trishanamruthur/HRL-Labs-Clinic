@@ -1,1 +1,1 @@
-# 4 Triple Quantum Dot
+# Triple Quantum Dot

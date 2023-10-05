@@ -6,11 +6,6 @@ root: intro
 chapters:
 - file: 1-loading-and-unloading-single-dot
 - file: 2-sensing-dot
-  sections:
-    - file: 2-1-capacitive-coupling
-      sections:
-        - file: 2-1-1-equations-governing-addition-energies
-    - file: 2-2-measurement-amplifier-readout
 - file: 3-double-dots
 - file: 4-triple-quantum-dot
   sections:
