@@ -1,1 +1,0 @@
-# 4.1 Pairwise stability diagrams
