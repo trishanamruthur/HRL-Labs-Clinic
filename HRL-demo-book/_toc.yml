@@ -4,8 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: interactive-plots
-- file: images-and-links
-- file: quizzes
-- file: video-embeds
-- file: notes-warnings
+- file: bokeh
