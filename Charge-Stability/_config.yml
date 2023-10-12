@@ -23,8 +23,9 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/trishanamruthur/HRL-Labs-Clinic  # Online location of your book
   path_to_book: Charge-Stability  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links
-                  # nbgitpuller errors out if anything other than "master" is chosen
+  branch: main  # Which branch of the repository should be used when creating links.
+                # If using a different branch than previously, you MUST delete it from your
+                # JupyterHub files or nbgitpuller will not be able to launch the notebook.
 
 launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic" (will support markdown notebooks)
