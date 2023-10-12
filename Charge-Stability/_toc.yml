@@ -9,4 +9,5 @@ chapters:
 - file: 3-double-dots
   sections:
   - file: stability-diagrams-dne.ipynb
+  - file: in-book_stability.ipynb
 - file: 4-triple-quantum-dot
