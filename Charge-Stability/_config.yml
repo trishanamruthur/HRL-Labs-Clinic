@@ -44,3 +44,7 @@ sphinx:
 #     - amsmath
 #     - amssymb
 #     - mathtools
+
+execute:
+  exclude_patterns:
+    - '*-dne.ipynb'
