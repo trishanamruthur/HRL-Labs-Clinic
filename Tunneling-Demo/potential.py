@@ -1,70 +1,100 @@
 import numpy as np
 
-class GatePotential:
-    def __init__(self, gate_width, dot_width, gap, V1, VP, V2, VD, V0=0, depth=50e-9, height=1, inf=1e5):
-        # set all of the variables
-        self.gate_width = gate_width
-        self.dot_width = dot_width
+class RectGate:
+    ''' Defines the geometry of a rectangular gate which can be called upon later to produce a potential when supplied with a voltage. '''
+    def __init__(self, x, y, width, height, voltage=0):
+        self.pos = np.array([x,y,0])
+        self.width = width
         self.height = height
-        self.gap = gap
-        self.V1 = V1
-        self.VP = VP
-        self.V2 = V2
-        self.VD = VD
-        self.V0 = V0
-        self.inf = inf
-        self.depth = depth
+        self.L = x - width/2
+        self.R = x + width/2
+        self.B = y - height/2
+        self.T = y + height/2
+        self.V = voltage
 
+    @staticmethod
+    def from_edges(left, right, bottom, top, voltage=0):
+        ''' Construct a rectangular gate by defining the left, right, bottom, and top edges. '''
+        return RectGate((left + right)/2, (bottom+top)/2, right-left, top-bottom, voltage=voltage)
+    
     @staticmethod
     def g(u, v, d):
-        ''' g function (equation 3.12 in the davies paper) '''
-        R = np.sqrt(u**2 + v**2 + d**2)
-        return 1/(2*np.pi) * np.arctan(u*v/(d*R))
+        ''' g(u,v) function from the paper '''
+        r = np.sqrt(u**2 + v**2 + d**2)
+        return 1/(2*np.pi) * np.arctan(u*v/(d*r))
 
-    @staticmethod
-    def phi_rect(x, y, d, Vg, L, R, B, T):
-        ''' phi equation (3.11, davies paper)'''
-        return Vg*(GatePotential.g(x-L, y-B, d) + GatePotential.g(x-L, T-y, d) + GatePotential.g(R-x, y-B, d) + GatePotential.g(R-x, T-y, d))
+    def __call__(self, x, y, d):
+        ''' returns the potential from this gate at a position (x,y,-d) when this gate is held at a voltage V '''
+        return self.V*(
+            RectGate.g(x - self.L, y - self.B, d) + 
+            RectGate.g(x - self.L, self.T - y, d) + 
+            RectGate.g(self.R - x, y - self.B, d) + 
+            RectGate.g(self.R - x, self.T - y, d))
 
-    def __call__(self, x, y=0):
-        ''' returns the potential for a gate structure '''
+    def set_voltage(self, voltage):
+        self.V = voltage
+
+    def __repr__(self):
+        return f'RectGate({self.L} < x < {self.R}, {self.B} < y < {self.T}, V={self.V})'
+
+class GateGeometry:
+    ''' Defines a geometry of multiple gates '''
+    def __init__(self, source_bath_x, drain_bath_x, source_voltage=0, drain_voltage=-1e-3, inf=1e5,  gates={}, depth=50e-9):
+        self.source = RectGate(source_bath_x - inf/2, 0, inf, inf, voltage=source_voltage)
+        self.drain = RectGate(drain_bath_x + inf/2, 0, inf, inf, voltage=drain_voltage)
+        self.inf = inf # value of infinity
+        self._gates = gates # dictionary of 'gate name': (gate, voltage)
+        self._gates['S'] = self.source
+        self._gates['D'] = self.drain
+        self._depth = depth # default depth for call
+
+    # +++ BUILT IN +++
+
+    def __repr__(self):
+        return self._gates.__repr__()
+
+    def __getitem__(self, key):
+        return self._gates[key]
+    
+    def __call__(self, x, y, depth=None):
+        # set depth
+        if depth is None: depth = self._depth
+        # sum contributions of each gate
         out = 0
-        # first rectangle is T=+inf, B=-inf, L=-inf, R=0
-        out += GatePotential.phi_rect(x, y, self.depth, self.V0, -self.inf, 0, -self.inf, self.inf)
-        # V1: L = gap, R = gate_width+gap
-        out += GatePotential.phi_rect(x, y, self.depth, self.V1, self.gap, self.gate_width+self.gap, -self.height/2, self.height/2)
-        # Vp: L = gate_width+2gap, R = gate_width+2gap+dot_width
-        out += GatePotential.phi_rect(x, y, self.depth, self.VP, self.gate_width + 2*self.gap, self.gate_width + 2*self.gap+self.dot_width, -self.height/2, self.height/2)
-        #V2: L = gate_width+3gap+dot_width, R = 2*gate_width+3gap+dot_width
-        out += GatePotential.phi_rect(x, y, self.depth, self.V2, self.gate_width + 3*self.gap + self.dot_width, 2*self.gate_width + 3*self.gap + self.dot_width, -self.height/2, self.height/2)
-        #Vd: L=2*gate_width+4gap+dot_width, R=inf
-        out += GatePotential.phi_rect(x,y,self.depth,self.VD,2*self.gate_width + 4*self.gap + self.dot_width, self.inf, -self.inf, self.inf)
-        # return the potential accounting for all gates
+        for name in self.gate_names:
+            out += self._gates[name](x, y, depth)
         return out
 
-# testing
-if __name__ == '__main__':
-    import matplotlib.pyplot as plt
+    # +++ PROPERTIES +++
 
-    xs = np.linspace(-300e-9, 500e-9, 10000)
-    ys = np.zeros_like(xs)
-
-    phi = GatePotential(50e-9, 90e-9, 10e-9, 1e-3, -1e-3, 1e-3, -1e-5)
-
-    for i, x in enumerate(xs):
-        ys[i] = phi(x, 0, 50e-9)
+    @property
+    def gate_names(self):
+        return list(self._gates)
     
-    # plot the gates
-    # plt.plot([-150e-9, 0], [0, 0], color='r')
-    # plt.plot([gap, gate_width+gap], [0, 0], color='r')
-    # plt.plot([gate_width+2*gap, gate_width+2*gap+dot_width], [0, 0], color='r')
-    # plt.plot([gate_width+3*gap+dot_width, 2*gate_width+3*gap+dot_width], [0, 0], color='r')
-    # plt.plot([2*gate_width+4*gap+dot_width, 400e-9], [0, 0], color='r')
+    # +++ METHODS +++
 
-    plt.plot(xs, ys)
-    plt.xlabel('x position')
-    plt.ylabel('Potential (V)')
-    plt.show()
+    def add_gate(self, name, gate):
+        ''' Add a gate to the geometry. '''
+        self._gates[name] = gate
 
+def alternating_spacing(num_dots, dot_width, gate_width, height, gap=0, dot_voltage=0, gate_voltage=0, source_voltage=0, drain_voltage=-1e-3):
+    total_width = num_dots * dot_width + (num_dots + 1) * gate_width + (2 * num_dots + 2) * gap
+    # length between the center of the dots on either side
+    total_dots_length = total_width - 2 * gate_width - 4 * gap - dot_width
+    # length between the center of the gates on either side
+    total_gates_width = total_width - 2 * gap - gate_width
+    # initialize the geometry with the baths
+    geo = GateGeometry(-total_width/2, total_width/2, source_voltage, drain_voltage)
+    # loop to construct dots
+    for i in range(num_dots):
+        x = total_dots_length * (i/(num_dots-1) - 0.5)
+        geo.add_gate(f'P{i}', RectGate(x, 0, dot_width, height, voltage=dot_voltage))
+    # loop to construct dots
+    for i in range(num_dots+1):
+        x = total_gates_width * (i/num_dots - 0.5)
+        geo.add_gate(f'X{i}', RectGate(x, 0, gate_width, height, voltage=gate_voltage))
+    # return the populated geometry    
+    return geo
 
-
+if __name__ == '__main__':
+    g = alternating_spacing(3, 5, 2, 4, gap=1, dot_voltage=-0.002, gate_voltage=0.001)

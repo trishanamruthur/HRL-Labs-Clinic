@@ -6,7 +6,7 @@ root: intro
 chapters:
 - file: 1-loading-and-unloading-single-dot
 - file: 2-sensing-dot
-- file: 3-double-dots
+- file: 3-double-dot.ipynb
   sections:
   - file: stability-diagrams-dne.ipynb
   - file: in-book_stability.ipynb
