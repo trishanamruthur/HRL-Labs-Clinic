@@ -27,6 +27,9 @@ repository:
                 # If using a different branch than previously, you MUST delete it from your
                 # JupyterHub files or nbgitpuller will not be able to launch the notebook.
 
+html:
+  use_repository_button: true
+
 launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic" (will support markdown notebooks)
   jupyterhub_url: "https://strong-honeybee-virtually.ngrok-free.app/"
