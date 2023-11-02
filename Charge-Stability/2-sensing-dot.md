@@ -1,5 +1,7 @@
 # Measuring Charge in Quantum Dots
 
+Jason was here "suggesting an edit".
+
 ## Motivation
 
 Now that we know that we *can* move electrons into quantum dots, we would like to know how many electrons our in our dots at a given time. In particular, the qubits in a SLEDGE device require three electrons each, usually distributed so one is in each dot. The device cannot be useful unless we know when this is the case. Furthermore, one of the easiest ways to measure the spin of the electrons in the dots is by setting up a situation where the electron in one dot will move to a different dot with an electron only when the electrons have opposite spins. These spin-to-charge mechanisms will be described in more detail later on (TODO: link), but the upshot for now is that these methods rely on being able to measure how many electrons are in a dot.
