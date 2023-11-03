@@ -1,6 +1,5 @@
 # Measuring Charge in Quantum Dots
 
-Jason was here "suggesting an edit".
 
 ## Motivation
 
