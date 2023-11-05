@@ -4,7 +4,7 @@
 format: jb-book
 root: charge-stability/intro
 chapters:
-- file: charge-stability/1-load-unload/loading-and-unloading-single-dot
+- file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
   sections:
   - file: charge-stability/1-load-unload/tunneling
 - file: charge-stability/2-sensing-dot/sensing-dot
