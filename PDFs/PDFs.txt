@@ -1,0 +1,8 @@
+PDF Links
+Blumoff: https://arxiv.org/pdf/2112.09801.pdf
+Burkard: https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.95.025003
+Davies: https://doi.org/10.1063/1.359446
+Esslinger:https://arxiv.org/pdf/1007.0012.pdf#:~:text=Figure%202%3A%20A%20Hubbard%20model,atom%20of%20a%20different%20spin
+Ha Ha: https://pubs.acs.org/doi/epdf/10.1021/acs.nanolett.1c03026\
+Hanson: https://arxiv.org/pdf/cond-mat/0610433.pdf
+Van Der Wiel : https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.75.1
