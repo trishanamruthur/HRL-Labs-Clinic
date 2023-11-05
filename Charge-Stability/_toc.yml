@@ -9,7 +9,4 @@ chapters:
   - file: 1_5-tunneling
 - file: 2-sensing-dot
 - file: 3-double-dot.ipynb
-  sections:
-  - file: stability-diagrams-dne.ipynb
-  - file: in-book_stability.ipynb
-- file: 4-triple-quantum-dot
+- file: 4-quantum-dot-arrays
