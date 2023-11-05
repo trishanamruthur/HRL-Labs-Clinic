@@ -5,6 +5,8 @@ format: jb-book
 root: intro
 chapters:
 - file: 1-loading-and-unloading-single-dot
+  sections:
+  - file: 1_5-tunneling
 - file: 2-sensing-dot
 - file: 3-double-dot.ipynb
   sections:
