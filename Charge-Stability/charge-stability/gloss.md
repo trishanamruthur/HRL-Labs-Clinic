@@ -26,7 +26,7 @@ At HRL, the Bloch sphere represents 3-spin qubits. To learn more about how qubit
 ## Capacitive Coupling
 The concept that nearby gates or dots can electrostatically
 
-(g-tunneling)=
+ affect othe(g-tunneling)=
 ## Tunneling
 Tunneling is a quantum mechanical effect wherein a particle which classically would not be able to traverse some barrier between two regions actually does have a small probability of making it through the barrier.
 [Wiki](https://en.wikipedia.org/wiki/Quantum_tunnelling)
