@@ -2,4 +2,6 @@
 *_buil?/
 */__pycache__/
 */media/
-*.DS_Store
+media/
+*/.DS_Store
+.DS_Store
