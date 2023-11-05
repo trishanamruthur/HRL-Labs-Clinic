@@ -6,7 +6,7 @@ HRL's devices then have "plungers" for each of the dots and "gates" to control t
 This page will serve as an introduction to triple quantum dots. Devices in exchange-only quantum computing utilize three electrons in three tunnel-coupled quantum dots. Because of many technologies being developed at HRL, such as the SLEDGE device, are designed for triple-dot operations, it’s necessary to have an approachable introduction to such technologies. 
 
 ## SLEDGE Device
-In this section we will elaborate further on triple quantum dot devices, specifically on SLEDGE devices. Explanations will be based on the [Ha and Ha paper](./HaHa.pdf) and include discussion on the process flow and how it does triple-dot specific encodings.
+In this section we will elaborate further on triple quantum dot devices, specifically on SLEDGE devices. Explanations will be based on the [LINK: HAHA] and include discussion on the process flow and how it does triple-dot specific encodings.
 
 ## Device Animation
 This section will consist of an animated graphic of the SLEDGE device with the gates in motion, as referenced from Figure 1 of the Ha paper. 
