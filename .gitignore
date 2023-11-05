@@ -1,2 +1,7 @@
 # ignores all files in the build folder
 *_buil?/
+*/__pycache__/
+*/media/
+media/
+*/.DS_Store
+.DS_Store
