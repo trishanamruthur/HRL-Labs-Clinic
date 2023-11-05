@@ -2,11 +2,12 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: charge-stability/intro
 chapters:
-- file: 1-loading-and-unloading-single-dot
+- file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
   sections:
-  - file: tunneling
-- file: 2-sensing-dot
-- file: 3-double-dot.ipynb
-- file: 4-quantum-dot-arrays
+  - file: charge-stability/1-load-unload/tunneling
+- file: charge-stability/2-sensing-dot/sensing-dot
+- file: charge-stability/3-double-dot/double-dot.ipynb
+- file: charge-stability/4-qd-arrays/quantum-dot-arrays
+- file: charge-stability/gloss
