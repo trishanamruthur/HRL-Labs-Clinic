@@ -1,8 +1,6 @@
 # Quantum Dot Measurement and Stability
 
-This is a small subtopic outline for Quantum Dot Measurement and Stability
-
-Check out the content pages bundled with this sample book to see more.
+A sample educational Jupyter book covering charge measurement and stability in quantum dot arrays.
 
 ```{tableofcontents}
 ```

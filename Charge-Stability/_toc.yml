@@ -4,10 +4,12 @@
 format: jb-book
 root: charge-stability/intro
 chapters:
-- file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
+- file: charge-stability/cover.md
   sections:
-  - file: charge-stability/1-load-unload/tunneling.ipynb
-- file: charge-stability/2-sensing-dot/sensing-dot
-- file: charge-stability/3-double-dot/double-dot.ipynb
-- file: charge-stability/4-qd-arrays/quantum-dot-arrays
-- file: charge-stability/gloss
+  - file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
+    sections:
+    - file: charge-stability/1-load-unload/tunneling.ipynb
+  - file: charge-stability/2-sensing-dot/sensing-dot
+  - file: charge-stability/3-double-dot/double-dot.ipynb
+  - file: charge-stability/4-qd-arrays/quantum-dot-arrays
+  - file: charge-stability/gloss
