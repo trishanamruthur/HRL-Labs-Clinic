@@ -53,4 +53,10 @@ The lever arm $\alpha_{12}$ refers to the infinitesimal ratio $dV_2/dV_1$ for tw
 Spin, or intrinsic angular momentum, is a property of particles at a quantum scale.
 [Wiki](https://en.wikipedia.org/wiki/Spin_(physics))
 
+(gls:schrodinger)
+## Schrodinger Equation
+The Schrodinger equation is the equation that dictates the time evolution of a wavefunction. [Read more](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation).
 
+(gls:wavefxn)
+## Wave Function
+The wave function of a quantum state is the mathematical representation of the state. It encodes the probabilities of measurement of the quantum state. [Read more](https://en.wikipedia.org/wiki/Wave_function).
