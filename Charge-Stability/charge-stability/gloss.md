@@ -48,15 +48,19 @@ Quantum dots are semiconductor nanoparticles that have varyingg optoelectronic p
 ## Lever Arm
 The lever arm $\alpha_{12}$ refers to the infinitesimal ratio $dV_2/dV_1$ for two electrical components. It defines the effect that a small change in $V_1$ will have on $V_2$, namely that $\Delta V_2 = \alpha_{12}\Delta V_1$.
 
-(gls:spin)
+(gls:spin)=
 ## Spin
 Spin, or intrinsic angular momentum, is a property of particles at a quantum scale.
 [Wiki](https://en.wikipedia.org/wiki/Spin_(physics))
 
-(gls:schrodinger)
+(gls:schrodinger)=
 ## Schrodinger Equation
 The Schrodinger equation is the equation that dictates the time evolution of a wavefunction. [Read more](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation).
 
-(gls:wavefxn)
+(gls:wavefxn)=
 ## Wave Function
 The wave function of a quantum state is the mathematical representation of the state. It encodes the probabilities of measurement of the quantum state. [Read more](https://en.wikipedia.org/wiki/Wave_function).
+
+(gls:charge-noise)=
+## Charge Noise
+Charge noise is a pesky and not super well understood phenomenon. Essentially, it has to do with stray charges getting stuck in inconvenient parts of the device causing fluctuations in the electric potential which are hard to model predictively.
