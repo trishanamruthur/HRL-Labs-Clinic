@@ -17,13 +17,15 @@ The layout of the devices used at HRL is described and detailed in the above fig
 
 ## Device Function
 
-### Charge Measurements
+### Measuring Loading Events
 
-By placing the M dots (sensor dots) adjacent to the six P dots, any change in the charge occupation of the P dots will affect the [electro-chemical potential](gls:chempot-fermi-e) of the sensor dot. If we allow for a small (yet measureable) current to flow through each sensor dot, then loading and unloading events in the P dots will cause large changes in the current of the sensor dots, allowing us to infer the electron population of the P dots.
+By placing the sensor dots (M dots) adjacent to the six P dots, any change in the charge occupation of the P dots will affect the [electro-chemical potential](gls:chempot-fermi-e) of the sensor dot. If we allow for a small (yet measureable) current to flow through each sensor dot, then loading and unloading events in the P dots will cause large changes in the current of the sensor dots, as we saw in the [figure from Dodson's paper earlier](dodson2-6).
+
+We won't delve into the specifics here, but in these multi-dot devices, the fact that the distance from each sensor dot to each quantum dot plays a key role in charge sensing. By cleverly modulating the gate voltages and precisely measuring the resulting current shifts in the measurement dots, you can distinguish loading and unloading events between different dots.
 
 ### Pairwise Stability Diagrams
 
-We previously discussed stability diagrams in the context of double dots, and the _exact same principles_ apply to these multi-dot arrays as well. In cateloging the functionality of these devices pairwise stability diagrams (exactly like the ones we have shown for double dots) are a crucial tool. To generate these diagrams, two dots will be isolated and have their voltages swept while measuring changes in sensor dot current, which are then plotted on a heatmap with the dot plunger voltages on the axes.
+We previously discussed stability diagrams in the context of double dots, and the _exact same principles_ apply to these multi-dot arrays as well. In cateloging the functionality of these devices pairwise stability diagrams (exactly like the ones we have shown for double dots) are a crucial tool. To generate these diagrams, two dots will be isolated, which you can imagine as setting the voltages for all of the dots and gates afterwards to match the drain bath voltage, and setting the voltage of all the previous dots and gates to match the source bath voltage. In this configuration, you are essentially just dealing with a [double dot device](../3-double-dot/double-dot.ipynb), and you can treat it in the exact same way. In particular, to classify the behavior of the gates and dots it is typical to make stability diagrams in which the dot voltages are swept while plotting current changes on a heat map. Below is a figure from the [Ha Ha Paper](../../../PDFs/HaHa.pdf) that shows stability diagrams for each pair of adjacent dots in their six quantum dot device.
 
 ```{figure} ./HA-fig4a.png
 ---
@@ -33,8 +35,4 @@ name: ha-fig4a
 Figure 4 panel A from the [Ha Ha paper](../../../PDFs/HaHa.pdf). This figure shows how we can measure the gate voltages that yield a certain charge configuration for each dot thanks to our understanding of how to read these stability diagrams.
 ```
 
-## Small animation
-
-
-## Summary and Reference
-We will include a summary of the topic as well as links to the sources referenced in the above sections, as well as other relevant research that can provide additional information for those who want to dig deeper into the topic. 
+Notice in the figure above that no two stability diagrams are the same - which is precisely why creating these stability diagrams is so useful in the first place. Due to the inherent bounds on precision of manufacturing, the device will never behave _ideally_, so creating these stability diagrams can be a great way to benchmark the performance of these devices.
