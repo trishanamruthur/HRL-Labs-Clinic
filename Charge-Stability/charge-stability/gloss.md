@@ -10,8 +10,8 @@ The amount of energy needed to move a particle (in our case, probably an electro
 
 (gls:dot-charge-sensor)=
 ## Dot Charge Sensor
-A 
-uantum dot placed near other quantum dots in order to measure 
+A quantum dot with a small current running through it. When placed near other quantum dots, charge occupation changes in nearby quantum dots will cause large changes in the current flowing through the sensor dot, due to the cross capacitance between the sensor dot and all the other dots in the system.
+
 (gls:qubit)=
 ## Qubit
 A "qubit" can be any two-level quantum system, whose states get labeled $\ket{0}$ or $\ket{1}$. [Read more](https://en.wikipedia.org/wiki/Qubit).
@@ -24,7 +24,7 @@ At HRL, the Bloch sphere represents 3-spin qubits. To learn more about how qubit
 
 (gls:cap-coupling)=
 ## Capacitive Coupling
-The concept that nearby gates or dots can electrostatically affect othe
+The concept that every electrical component in a system will have some capacitance with every other component. These capacitances can be modeled (for small perturbations) by a lever-arm matrix. 
 
 (gls:tunneling)=
 ## Tunneling
@@ -40,9 +40,8 @@ This refers to the fact that in (bound) quantum mechanical systems, there are di
 
 (gls:quantum-dot)=
 ## Quantum Dot
-Quantum dots are semiconductor nanoparticles that have varyingg optoelectronic properties depending on its composition. 
+Quantum dots are small bound systems that produce discretized energy levels.
 [Wikipedia](https://en.wikipedia.org/wiki/Quantum_dot)
-[]
 
 (gls:lever-arm)=
 ## Lever Arm
@@ -55,7 +54,7 @@ Spin, or intrinsic angular momentum, is a property of particles at a quantum sca
 
 (gls:schrodinger)=
 ## Schrodinger Equation
-The Schrodinger equation is the equation that dictates the time evolution of a wavefunction. [Read more](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation).
+The Schrodinger equation is the equation that dictates the time evolution of a wave function. [Read more](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation).
 
 (gls:wavefxn)=
 ## Wave Function
