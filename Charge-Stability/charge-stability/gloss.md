@@ -20,7 +20,7 @@ A "qubit" can be any two-level quantum system, whose states get labeled $\ket{0}
 ## Bloch Sphere
 A Bloch sphere is a visual representation of a qubit. Typically, it is used to visualize a 2-state qubit with states $\ket{0}$ and $\ket{1}$. [Read more](https://en.wikipedia.org/wiki/Bloch_sphere).
 
-At HRL, the Bloch sphere represents 3-spin qubits. To learn more about how qubits are encoded at HRL, [read more here](../../PDFs/Bukard.pdf).
+At HRL, the Bloch sphere represents 3-spin qubits. To learn more about how qubits are encoded at HRL, [read more here](../../PDFs/Burkard.pdf).
 
 (gls:cap-coupling)=
 ## Capacitive Coupling
