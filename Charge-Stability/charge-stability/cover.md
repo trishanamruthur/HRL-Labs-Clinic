@@ -11,7 +11,7 @@ In this section we cover
 - how we can use [quantum dots to measure changes in the potential](./2-sensing-dot/sensing-dot.ipynb) and correlate changes to the population of nearby dots
 - how [quantum dots will interact with one another when they are coupled in series](./3-double-dot/double-dot.ipynb)
 - how the properties of quantum dots in series can be systematically classified with [stability diagrams](sec:stability-diagrams)
-- how all of these principles can help us understand the structure and function in HRL's current quantum dot devices
+- how all of these principles can help us understand the [structure and function in HRL's current quantum dot devices](./4-qd-arrays/quantum-dot-arrays.md)
 
 ## References
 
