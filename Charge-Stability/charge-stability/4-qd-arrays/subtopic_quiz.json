@@ -1,0 +1,51 @@
+[
+    {
+      "question": "What gate controls the tunneling rates into the quantum dot",
+      "type": "multiple_choice",
+      "answers": [
+        {
+          "answer": "M-Gate",
+          "correct": false,
+          "feedback": "Good guess"
+        },
+        {
+            "answer": "T-Gate",
+            "correct": true,
+            "feedback": "Good job!"
+  
+        },
+        {
+            "answer": "P-Gate",
+            "correct": false,
+            "feedback": "Good guess"
+        }
+      ]
+    },
+    {
+        "question": "What does a stability diagram describe? Select all that are true",
+      "type": "many_choice",
+      "answers": [
+        {
+          "answer": "2",
+          "correct": true
+        },
+        {
+            "answer": "10",
+            "correct": true,
+            "feedback": "Very binary of you"
+        },
+        {
+            "answer": "-1",
+            "correct": false,
+            "feedback": "Interesting type of math"
+        },
+        {
+            "answer": "42",
+            "correct": false,
+            "feedback": "Good try"
+        }
+  
+      ]
+    }
+  ]
+  
