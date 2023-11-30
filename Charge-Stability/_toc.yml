@@ -12,6 +12,7 @@ chapters:
   - file: charge-stability/2-sensing-dot/sensing-dot
   - file: charge-stability/3-double-dot/double-dot.ipynb
   - file: charge-stability/4-qd-arrays/quantum-dot-arrays
+  - file: charge-stability/subtopicquiz.ipynb
   - file: charge-stability/gloss
 - file: documentation/doc-cover.md
   sections:
