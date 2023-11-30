@@ -1,6 +1,6 @@
 [
     {
-      "question": "What gate controls the tunneling rates into the quantum dot",
+      "question": "What gate controls the tunneling rates into the quantum dot?",
       "type": "multiple_choice",
       "answers": [
         {
@@ -22,29 +22,104 @@
       ]
     },
     {
-        "question": "What does a stability diagram describe? Select all that are true",
+        "question": "What does a stability diagram describe? Select all that are true.",
       "type": "many_choice",
       "answers": [
         {
-          "answer": "2",
+          "answer": "Stable configurations of charges within the quantum dots",
           "correct": true
         },
         {
-            "answer": "10",
-            "correct": true,
-            "feedback": "Very binary of you"
+            "answer": "Differences between the potential barriers between the two dots",
+            "correct": false,
+            "feedback": "Not quite! The potential barriers aren't represented in stability diagrams."
         },
         {
-            "answer": "-1",
-            "correct": false,
-            "feedback": "Interesting type of math"
+            "answer": "Changes in sensor dot current as functions of plunger gate voltages",
+            "correct": true
         },
         {
-            "answer": "42",
+            "answer": "The tunneling rates between the source and drain baths of the quantum dots",
             "correct": false,
-            "feedback": "Good try"
+            "feedback": "Not exactly! Even though there may be charges tunneling through the dots in one of its stable configurations, the stability diagram itself doesn't describe the tunneling rates."
         }
+      ]
+    },
+    {
+      "question": "What are the lines in stability diagrams representing?",
+      "type": "multiple_choice",
+      "answers": [
+        {
+          "answer": "The gate voltages that lead to stable charge configurations",
+          "correct": false,
+          "feedback": "All of the points on in the stablity diagram represent effectively 'stable' configurations of charge! Not just the lines."
+        },
+        {
+            "answer": "The gate voltages that lead to unstable charge configurations",
+            "correct": false,
+            "feedback": "Kind of... The lines do represent gate voltages that lead to equally probable charge configurations, so they can be thought of as 'unstable' in that sense, but there is a better answer."
+        },
+        {
+            "answer": "The paths that electrons will take as they tunnel through the quantum dots",
+            "correct": false,
+            "feedback": "You might want to revisit this section..."
+        },
+        {
+            "answer": "Gate voltages that reveal a discontinuity in the current flowing through the sensor dot",
+            "correct": true,
+            "feedback": "Yes! This is exactly what stability diagrams are showing us. The heat map is plotting dI/dV_gate for the sensor dot."
+        }
+
   
+      ]
+    },
+    {
+      "question": "What is the fermi-level?",
+      "type": "multiple_choice",
+      "answers": [
+        {
+          "answer": "The legendary hidden level in Mario Bros concieved of by Fermi himself",
+          "correct": false,
+          "feedback": "Really?"
+        },
+        {
+            "answer": "The energy of the most energetic electron in a system",
+            "correct": true,
+            "feedback": "Nice!"
+        },
+        {
+            "answer": "The height of the bath of electrons",
+            "correct": false,
+            "feedback": "Even though we sometimes represent it as a horizontal line, it is not a physical level that the electrons reach."
+        },
+        {
+            "answer": "The average energy of an electron in the system",
+            "correct": false
+        }
+      ]
+    },
+    {
+      "question": "What is the purpose of the potential barriers between quantum dots in HRL's devices? Select all that apply",
+      "type": "many_choice",
+      "answers": [
+        {
+          "answer": "To help with confining electrons within dots",
+          "correct": true
+        },
+        {
+            "answer": "To modulate the tunneling of electrons between dots",
+            "correct": true
+        },
+        {
+            "answer": "To help with sensing the electrons within the dots",
+            "correct": false,
+            "feedback": "You might want to revisit this section..."
+        },
+        {
+            "answer": "To create the dots themselves",
+            "correct": false,
+            "feedback": "Kind of, but not really! The dots are created by the plunger gates, not the potential barriers; although, the potential barriers do help with confining the electrons within the dots."
+        }
       ]
     }
   ]
