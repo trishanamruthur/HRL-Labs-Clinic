@@ -38,10 +38,10 @@ The page should have an orange "sign-in" box with fields for username and passwo
 
 ```{admonition} A Clinic Bug
 :class: note, dropdown
-When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message "Spawn failed: Server at <IP> didn't respond in 30 seconds." Further [investigation](tljh:troubleshooting) found that TLJH couldn't find jupyter_core. For some reason, jupyter had never been installed in TLJH's environment. We didn't run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue is specific relation to TLJH, so here's how we solved it, in case you run into the same issue:
+When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message "Spawn failed: Server at <IP> didn't respond in 30 seconds." Further [investigation](tljh:troubleshooting) found that TLJH couldn't find jupyter_core. For some reason, jupyter had never been installed in TLJH's environment. We didn't run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue specifically in relation to TLJH, so here's how we solved it, in case you run into the same issue:
 
     cd /opt/tljh
-Change ownership so that conda can write to the relevant site-packages location. <username> is whoever you're logged in as on the Ubuntu server, rather than a TLJH user or the like.
+Change ownership so that conda can write to the relevant site-packages location. \<username\> is whoever you're logged in as on the Ubuntu server, rather than a TLJH user or the like.
 
     sudo chown -R <username> user
 Install jupyter in the correct environment, and undo everything else.
@@ -62,7 +62,7 @@ To install new packages, open up a terminal from the main page of the Jupyter Hu
 
     sudo -E conda install -c bokeh bokeh
 
-(tljh:troubleshooting=)
+(tljh:troubleshooting)=
 ## Troubleshooting
 
 See https://tljh.jupyter.org/en/latest/troubleshooting/logs.html. Yes, the hyphen in the user log command is really there. Bizarre.
