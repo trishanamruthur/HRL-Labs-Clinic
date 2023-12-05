@@ -28,7 +28,9 @@ repository:
                 # JupyterHub files or nbgitpuller will not be able to launch the notebook.
 
 html:
+  # provide link to repository
   use_repository_button: true
+  # provide link to edit page. Users without edit rights can make a PR.
   use_edit_page_button: true
 
 launch_buttons:
