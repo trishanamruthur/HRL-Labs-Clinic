@@ -69,4 +69,6 @@ See https://tljh.jupyter.org/en/latest/troubleshooting/logs.html. Yes, the hyphe
 
 ## Miscellaneous
 
-TLJH is managed by systemd, and can be started, stopped, etc. with ```systemctl``` or ```service``` commands. ```sudo tljh-config reload``` will restart the Hub without affecting current users. 
+TLJH is managed by systemd, and can be started, stopped, etc. with ```systemctl``` or ```service``` commands. ```sudo tljh-config reload``` will restart the Hub without affecting current users.
+
+The clinic team didn't enable HTTPS, but HRL probably will want to. See https://tljh.jupyter.org/en/latest/howto/admin/https.html.
