@@ -433,7 +433,7 @@ sudo tljh-config reload
 <p>The page should have an orange “sign-in” box with fields for username and password. For the username, use whatever <code class="docutils literal notranslate"><span class="pre">&lt;admin-user-name&gt;</span></code> you chose during the installation process. Choose a password and type it into the password field; TLJH will remember it for future login attempts. There are no mechanisms for ensuring you typed the password you wanted, so make sure you enter it correctly the first time.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">A Clinic Bug</p>
-<p>When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message “Spawn failed: Server at <IP> didn’t respond in 30 seconds.” Further <a class="reference internal" href="#tljh-troubleshooting"><span class="std std-ref">investigation</span></a> found that TLJH couldn’t find jupyter_core. For some reason, jupyter had never been installed in TLJH’s environment. We didn’t run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue is specific relation to TLJH, so here’s how we solved it, in case you run into the same issue:</p>
+<p>When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message “Spawn failed: Server at <IP> didn’t respond in 30 seconds.” Further <a class="reference internal" href="#tljh-troubleshooting"><span class="std std-ref">investigation</span></a> found that TLJH couldn’t find jupyter_core. For some reason, jupyter had never been installed in TLJH’s environment. We didn’t run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue specifically in relation to TLJH, so here’s how we solved it, in case you run into the same issue:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /opt/tljh
 </pre></div>
 </div>
@@ -468,6 +468,7 @@ sudo chown -R root user
 <section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading">#</a></h2>
 <p>TLJH is managed by systemd, and can be started, stopped, etc. with <code class="docutils literal notranslate"><span class="pre">systemctl</span></code> or <code class="docutils literal notranslate"><span class="pre">service</span></code> commands. <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tljh-config</span> <span class="pre">reload</span></code> will restart the Hub without affecting current users.</p>
+<p>The clinic team didn’t enable HTTPS, but HRL probably will want to. See <a class="reference external" href="https://tljh.jupyter.org/en/latest/howto/admin/https.html">https://tljh.jupyter.org/en/latest/howto/admin/https.html</a>.</p>
 </section>
 </section>
 

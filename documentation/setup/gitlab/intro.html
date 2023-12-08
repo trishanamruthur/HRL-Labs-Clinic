@@ -383,7 +383,11 @@ document.write(`
 <h1>Gitlab Documentation<a class="headerlink" href="#gitlab-documentation" title="Permalink to this heading">#</a></h1>
 <p>HRL presumably already has Gitlab set up how they want it. This documentation is here so HRL knows how the clinic team set it up, in case that becomes relevant for troubleshooting or figuring out why something behaves differently on HRL’s network.</p>
 <p>We installed Gitlab Omnibus on a computer running Ubuntu 22.04 following <a class="reference external" href="https://about.gitlab.com/install/#ubuntu">these instructions</a>. We did not use the Gitlab Ultimate, either as a trial or in full.</p>
-<p>TODO: Pages, Jupyterhub</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">A Clinic Bug</p>
+<p>We ended up putting JupyterHub at port 8080, and this broke Gitlab. It turns out that Gitlab has a process that listens there normally. Go to <code class="docutils literal notranslate"><span class="pre">/etc/gitlab/gitlab.rb</span></code> uncomment the <code class="docutils literal notranslate"><span class="pre">puma['port']</span> <span class="pre">=</span> <span class="pre">8080</span></code> and change it to e.g. 8081.</p>
+</div>
+<p>Add ssh key for computer with [Jupyterhub](Jupyterhub Setup).</p>
 </section>
 
     <script type="text/x-thebe-config">

@@ -38,7 +38,7 @@ The page should have an orange "sign-in" box with fields for username and passwo
 
 ```{admonition} A Clinic Bug
 :class: note, dropdown
-When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message "Spawn failed: Server at <IP> didn't respond in 30 seconds." Further [investigation](tljh:troubleshooting) found that TLJH couldn't find jupyter_core. For some reason, jupyter had never been installed in TLJH's environment. We didn't run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue is specific relation to TLJH, so here's how we solved it, in case you run into the same issue:
+When installing TLJH the second time, we encountered a bug where the server would time out after 30 seconds with the message "Spawn failed: Server at <IP> didn't respond in 30 seconds." Further [investigation](tljh:troubleshooting) found that TLJH couldn't find jupyter_core. For some reason, jupyter had never been installed in TLJH's environment. We didn't run into the issue the first time, and have no idea why it happened the second time. But, there was little guidance on the interwebs about this issue specifically in relation to TLJH, so here's how we solved it, in case you run into the same issue:
 
     cd /opt/tljh
 Change ownership so that conda can write to the relevant site-packages location. \<username\> is whoever you're logged in as on the Ubuntu server, rather than a TLJH user or the like.
@@ -69,4 +69,6 @@ See https://tljh.jupyter.org/en/latest/troubleshooting/logs.html. Yes, the hyphe
 
 ## Miscellaneous
 
-TLJH is managed by systemd, and can be started, stopped, etc. with ```systemctl``` or ```service``` commands. ```sudo tljh-config reload``` will restart the Hub without affecting current users. 
+TLJH is managed by systemd, and can be started, stopped, etc. with ```systemctl``` or ```service``` commands. ```sudo tljh-config reload``` will restart the Hub without affecting current users.
+
+The clinic team didn't enable HTTPS, but HRL probably will want to. See https://tljh.jupyter.org/en/latest/howto/admin/https.html.
