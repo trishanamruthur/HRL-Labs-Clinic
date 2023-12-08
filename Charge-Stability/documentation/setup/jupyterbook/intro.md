@@ -1,3 +1,4 @@
+(jupyter-book-setup)=
 # Jupyter Book Setup
 
 Instructions for installing and using Jupyter Book. See https://jupyterbook.org/en/stable/intro.html for Jupyter Book's official documentation.
