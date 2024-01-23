@@ -30,3 +30,7 @@ Depending on configuration options, Jupyter Book may cache some results and not 
     jb clean -a
 
 to remove the _build directory entirely, and then build again.
+
+# Building with Github Actions
+
+Testing, testing, 1 2 3 . . .
