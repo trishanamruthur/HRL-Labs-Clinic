@@ -33,4 +33,4 @@ to remove the _build directory entirely, and then build again.
 
 # Building with Github Actions
 
-Testing, testing, 1 2 3 . . .
+This repository uses the workflow at ```.github/workflows/build-site.yml``` to automatically update the Github Pages site with the Charge-Stability Jupyter Book whenever changes are pushed to the main branch. (It relies on some public Github workflows, so it probably won't translate directly to Gitlab. Gitlab Pages is tricky to set up so we haven't managed to test that yet.) See https://jupyterbook.org/en/stable/publish/gh-pages.html for more info. Note that the repository settings must give Actions (or at least this particular one) permission to push to the gh-pages branch. 
