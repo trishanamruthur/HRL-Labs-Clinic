@@ -14,6 +14,7 @@ chapters:
   - file: charge-stability/4-qd-arrays/quantum-dot-arrays
   - file: charge-stability/subtopicquiz.ipynb
   - file: charge-stability/gloss
+  - file: charge-stability/papersummary
 - file: documentation/intro.md
   sections:
   - file: documentation/animations_tutorial.ipynb
