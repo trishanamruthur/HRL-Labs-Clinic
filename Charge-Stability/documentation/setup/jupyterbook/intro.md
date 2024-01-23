@@ -33,4 +33,4 @@ to remove the _build directory entirely, and then build again.
 
 # Building with Github Actions
 
-Testing, testing, 1 2 3 4 . . .
+Testing, testing, 1 2 3 . . .
