@@ -10,6 +10,6 @@ Our current work (as of 12/8/23) is all being done in the ```Charge-Stability```
 
 You will need [Jupyter Book](jupyter-book-setup) to render any changes you make as html.
 
-The repository has an associated Github Pages site: https://trishanamruthur.github.io/HRL-Labs-Clinic. Currently (12/8/23), we update this manually with ```ghp-import```. This can be installed with ```pip install ghp-import```, and run with ```ghp-import -n -p -f _build/html``` to update the site to reflect any changes in the main branch. Hopefully we'll get around to making a Github Action for this at some point.
+The repository has an associated Github Pages site: https://trishanamruthur.github.io/HRL-Labs-Clinic. Currently (12/8/23), we update this manually with ```ghp-import```. This can be installed with ```pip install ghp-import```, and run with ```ghp-import -n -p -f Charge-Stability_build/html``` from the repository root to update the site to reflect any changes in the main branch. Hopefully we'll get around to making a Github Action for this at some point.
 
 The code in our book uses several Python packages, listed in ```Charge-Stabiility/requirements.txt```. They can be installed with pip or, in most cases, conda (other than ```jupyterquiz``` and ```jupytercards```, I think).
