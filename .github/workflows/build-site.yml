@@ -20,15 +20,14 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
-      run:
+      run: |
         sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev
-      run:
         pip install -r Charge-Stability/requirements.txt
 
 
     # Build the book
     - name: Build the book
-      run:
+      run: |
         jupyter-book build Charge-Stability
 
     # Push the book's HTML to github-pages
