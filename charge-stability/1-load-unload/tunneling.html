@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Electron Tunneling &#8212; Demo Book</title>
   
@@ -29,43 +28,47 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'charge-stability/1-load-unload/tunneling';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Measuring Charge in Quantum Dots" href="../2-sensing-dot/sensing-dot.html" />
@@ -163,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -446,9 +460,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="electron-tunneling">
-<h1>Electron Tunneling<a class="headerlink" href="#electron-tunneling" title="Permalink to this heading">#</a></h1>
+<h1>Electron Tunneling<a class="headerlink" href="#electron-tunneling" title="Link to this heading">#</a></h1>
 <section id="square-potential">
-<h2>Square Potential<a class="headerlink" href="#square-potential" title="Permalink to this heading">#</a></h2>
+<h2>Square Potential<a class="headerlink" href="#square-potential" title="Link to this heading">#</a></h2>
 <p>In Quantum Mechanics, particles can <a class="reference internal" href="../gloss.html#gls-tunneling"><span class="std std-ref">tunnel</span></a> through classically forbidden areas where  <span class="math notranslate nohighlight">\(E \leq V.\)</span> The <a class="reference internal" href="../gloss.html#gls-quantum-dot"><span class="std std-ref">quantum dot</span></a> works by having potential barriers surrounding the dot. Thus, an electron tunnels through a quantum dot. The T-gates’ voltage determines the height of the barrier, and therefore how hard it is for the electron to tunnel into the dot. Thus, the tunneling rate of the electron depends on the T-gates.</p>
 <p>To understand tunneling, we can begin with a toy example. The dot is in the plunger gate which here has a constant potential <span class="math notranslate nohighlight">\(V_P\)</span>. The T-gates we simplify having the same constant voltage <span class="math notranslate nohighlight">\(V_T\)</span>. We further simplify by setting the source and drain potential of the dot having 0 voltage. Below is an equation for the potential around the dot.</p>
 <div class="math notranslate nohighlight">
@@ -465,7 +479,7 @@ V_T &amp; x_2 &lt; x &lt; x_3\\
 <figure class="align-center" id="pot-well">
 <a class="reference internal image-reference" href="../../_images/double_wall_potential.png"><img alt="Double Barrier Potential" src="../../_images/double_wall_potential.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The Diagram of The Potential Energy</span><a class="headerlink" href="#pot-well" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The Diagram of The Potential Energy</span><a class="headerlink" href="#pot-well" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Then, we can note that the <a class="reference internal" href="../gloss.html#gls-wavefxn"><span class="std std-ref">wave function</span></a> of the electron would satisfy <a class="reference internal" href="../gloss.html#gls-schrodinger"><span class="std std-ref">the Schrodinger equation</span></a>. To understand the procedure of solving the double-wall potential described here, <a class="reference download internal" download="" href="../../_downloads/e0ef1295c09277dbd02cdbcd8b029460/Townsend_textbook.pdf"><span class="xref download myst">Townsend</span></a> chapter 6.10 does a good job describing the general procedure. We will be following the procedure here. First, we can create a general wave function and solve for the coefficients using the boundary conditions.</p>
@@ -512,7 +526,7 @@ Here we can see a slider that calculates the tunneling probabilities for differe
 <p>Thus, we can see that the T gates directly impact the probability that an electron enters and exits a quantum dot.</p>
 </section>
 <section id="non-square-potential-wkb-approximation">
-<h2>Non-Square Potential &amp; WKB Approximation<a class="headerlink" href="#non-square-potential-wkb-approximation" title="Permalink to this heading">#</a></h2>
+<h2>Non-Square Potential &amp; WKB Approximation<a class="headerlink" href="#non-square-potential-wkb-approximation" title="Link to this heading">#</a></h2>
 <p>We can note that the previous section was a rather simplistic view of the potentials. We assumed that the potential was constant in regions and that the barriers were perfect squares. However, the potential of the gates is not a constant line and thus we can use a different method of finding the tunneling probability.</p>
 <p>From <a class="reference external" href="https://doi.org/10.1063/1.359446">Davies et al 1995</a>, the gate potential, assuming a finite rectangle gate, is given by</p>
 <div class="math notranslate nohighlight">
@@ -532,7 +546,7 @@ T = \text{exp}\left(-2 \int dx \sqrt{\frac{2m}{\hbar^2}[V(x)-E]}\right)
 \]</div>
 <p>We would obtain this tunneling probability numerically.</p>
 <section id="better-approximations-the-fermi-hubbard-model">
-<h3>Better Approximations, the Fermi-Hubbard Model<a class="headerlink" href="#better-approximations-the-fermi-hubbard-model" title="Permalink to this heading">#</a></h3>
+<h3>Better Approximations, the Fermi-Hubbard Model<a class="headerlink" href="#better-approximations-the-fermi-hubbard-model" title="Link to this heading">#</a></h3>
 <p>The WKB approximation is a simple approximation of the tunneling probability. However, the approximation relies on the fact that the potential does not change over time. However, these potentials might change as the voltage of the gates change. Thus, a more sophisticated model is necessary to model the tunneling probability. This is the Fermi-Hubbard Model which deals with particles in 2D or 3D lattices . To find out more about the model, <a class="reference external" href="https://arxiv.org/pdf/1007.0012.pdf#:~:text=Figure%202%3A%20A%20Hubbard%20model,atom%20of%20a%20different%20spin.">Esslinger 2010</a> does a good job explaining the basics.</p>
 </section>
 </section>
@@ -631,7 +645,7 @@ By \'24 HRL Clinic Team
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

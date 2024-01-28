@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Quizzes in Jupyter Book &#8212; Demo Book</title>
   
@@ -29,41 +28,45 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'documentation/quizzes';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sliders/Interactive Elements Tutorial" href="sliders_tutorial.html" />
@@ -161,7 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -441,10 +455,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quizzes-in-jupyter-book">
-<h1>Quizzes in Jupyter Book<a class="headerlink" href="#quizzes-in-jupyter-book" title="Permalink to this heading">#</a></h1>
+<h1>Quizzes in Jupyter Book<a class="headerlink" href="#quizzes-in-jupyter-book" title="Link to this heading">#</a></h1>
 <p>Jupyter Book allows interactive learning like quizzes</p>
 <section id="quizzes">
-<h2>Quizzes<a class="headerlink" href="#quizzes" title="Permalink to this heading">#</a></h2>
+<h2>Quizzes<a class="headerlink" href="#quizzes" title="Link to this heading">#</a></h2>
 <p>To add quizzes and flashcards into your jupyter book page, you first need to install two packages.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterquiz</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">jupytercards</span>
@@ -485,13 +499,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="ImXtFXwtdjCp" data-shufflequestions="False"
+<div class="output text_html"><div id="YmMGLFDJJTYx" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#ImXtFXwtdjCp {
+#YmMGLFDJJTYx {
    --jq-multiple-choice-bg: #345995;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -661,7 +675,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsImXtFXwtdjCp=[
+</style></div><script type="application/javascript">var questionsYmMGLFDJJTYx=[
   {
     "question": "What is the best day of the week",
     "type": "multiple_choice",
@@ -1459,8 +1473,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("ImXtFXwtdjCp")) {
-            show_questions(questionsImXtFXwtdjCp,  ImXtFXwtdjCp); 
+          if(document.getElementById("YmMGLFDJJTYx")) {
+            show_questions(questionsYmMGLFDJJTYx,  YmMGLFDJJTYx); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1469,8 +1483,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("ImXtFXwtdjCp");
-        // console.log(document.getElementById("ImXtFXwtdjCp"));
+        //console.log("YmMGLFDJJTYx");
+        // console.log(document.getElementById("YmMGLFDJJTYx"));
 
         try_show();
         }
@@ -1712,7 +1726,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="flashcards">
-<h2>Flashcards<a class="headerlink" href="#flashcards" title="Permalink to this heading">#</a></h2>
+<h2>Flashcards<a class="headerlink" href="#flashcards" title="Link to this heading">#</a></h2>
 <p>You can also create flashcards. Similar to the quizzes, you create the flashcard in a json file. An example flashcard would be</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;front&quot;</span><span class="p">:</span> <span class="s2">&quot;HMC&quot;</span><span class="p">,</span>
@@ -1980,7 +1994,7 @@ if (typeof version == 'undefined') {
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="CfxKXaYGpbSF" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="CfxKXaYGpbSF-next" onclick="window.checkFlip('CfxKXaYGpbSF')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="yzhXuMnaMqxZ" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="yzhXuMnaMqxZ-next" onclick="window.checkFlip('yzhXuMnaMqxZ')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2327,14 +2341,14 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("CfxKXaYGpbSF")) {
-            createCards("CfxKXaYGpbSF", "True", "False");
+          if(document.getElementById("yzhXuMnaMqxZ")) {
+            createCards("yzhXuMnaMqxZ", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsCfxKXaYGpbSF=[
+var cardsyzhXuMnaMqxZ=[
     {
         "front": "HMC",
         "back": "Harvey Mudd College: A small liberal-arts college in Claremont, California"
@@ -2349,9 +2363,9 @@ var cardsCfxKXaYGpbSF=[
     }
 ]
 ;
-var frontColorsCfxKXaYGpbSF= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsCfxKXaYGpbSF= ["var(--dark-blue-gray)" ];
-var textColorsCfxKXaYGpbSF= ["var(--snow)" ];
+var frontColorsyzhXuMnaMqxZ= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsyzhXuMnaMqxZ= ["var(--dark-blue-gray)" ];
+var textColorsyzhXuMnaMqxZ= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 </section>
@@ -2447,7 +2461,7 @@ By \'24 HRL Clinic Team
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

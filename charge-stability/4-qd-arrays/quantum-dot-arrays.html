@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Charge Sensing in Quantum Dot Arrays &#8212; Demo Book</title>
   
@@ -29,41 +28,45 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'charge-stability/4-qd-arrays/quantum-dot-arrays';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Subtopic Quiz" href="../subtopicquiz.html" />
@@ -161,7 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -414,33 +428,33 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="charge-sensing-in-quantum-dot-arrays">
-<h1>Charge Sensing in Quantum Dot Arrays<a class="headerlink" href="#charge-sensing-in-quantum-dot-arrays" title="Permalink to this heading">#</a></h1>
-<p>Now that we understand the <a class="reference internal" href="../1-load-unload/loading-and-unloading-single-dot.html"><span class="doc std std-doc">basics of quantum dot operation</span></a>, <a class="reference internal" href="../2-sensing-dot/sensing-dot.html"><span class="doc std std-doc">how we can use a ‘sensing’ dot to infer the presence of an electron in another dot</span></a>, and <a class="reference internal" href="../3-double-dot/double-dot.html"><span class="doc std std-doc">how multiple quantum dots interact when they are chained in series</span></a>, we can look at the structure and function of the quantum-dot devices that are being used at HRL today.</p>
+<h1>Charge Sensing in Quantum Dot Arrays<a class="headerlink" href="#charge-sensing-in-quantum-dot-arrays" title="Link to this heading">#</a></h1>
+<p>Now that we understand the <a class="reference internal" href="../1-load-unload/loading-and-unloading-single-dot.html"><span class="std std-doc">basics of quantum dot operation</span></a>, <a class="reference internal" href="../2-sensing-dot/sensing-dot.html"><span class="std std-doc">how we can use a ‘sensing’ dot to infer the presence of an electron in another dot</span></a>, and <a class="reference internal" href="../3-double-dot/double-dot.html"><span class="std std-doc">how multiple quantum dots interact when they are chained in series</span></a>, we can look at the structure and function of the quantum-dot devices that are being used at HRL today.</p>
 <section id="device-structure">
-<h2>Device Structure<a class="headerlink" href="#device-structure" title="Permalink to this heading">#</a></h2>
+<h2>Device Structure<a class="headerlink" href="#device-structure" title="Link to this heading">#</a></h2>
 <p>As we have mentioned before,</p>
 <figure class="align-default" id="qd-ha-fig1">
 <a class="reference internal image-reference" href="../../_images/HA-fig11.png"><img alt="../../_images/HA-fig11.png" src="../../_images/HA-fig11.png" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Figure 1 from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha paper</span></a> showing the layout of their SLEDGE device, very similar to the design of HRL’s devices. Panel A shows the wiring for the gates; and B shows the structure of dots in the layer, the six P dots on the upper section being the actual dots while the X gates define the potential barriers electrons must cross to traverse between dots. Notice also in figure B that there are two M dots with adjacent Z gates - as we will describe here, these M dots enable measurement of charge in the P dots. See the attached paper for more information on this figure.</span><a class="headerlink" href="#qd-ha-fig1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Figure 1 from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha paper</span></a> showing the layout of their SLEDGE device, very similar to the design of HRL’s devices. Panel A shows the wiring for the gates; and B shows the structure of dots in the layer, the six P dots on the upper section being the actual dots while the X gates define the potential barriers electrons must cross to traverse between dots. Notice also in figure B that there are two M dots with adjacent Z gates - as we will describe here, these M dots enable measurement of charge in the P dots. See the attached paper for more information on this figure.</span><a class="headerlink" href="#qd-ha-fig1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The layout of the devices used at HRL is described and detailed in the above figure (as well as the accompanying paper) and there isn’t a whole lot more to add to the description of it. Let’s take a look at how our understanding of quantum dots thus far can be applied to this array of many quantum dots, and how the physical structure of components enables the device to isolate single electrons in the P quantum dots.</p>
 </section>
 <section id="device-function">
-<h2>Device Function<a class="headerlink" href="#device-function" title="Permalink to this heading">#</a></h2>
+<h2>Device Function<a class="headerlink" href="#device-function" title="Link to this heading">#</a></h2>
 <section id="measuring-loading-events">
-<h3>Measuring Loading Events<a class="headerlink" href="#measuring-loading-events" title="Permalink to this heading">#</a></h3>
+<h3>Measuring Loading Events<a class="headerlink" href="#measuring-loading-events" title="Link to this heading">#</a></h3>
 <p>By placing the sensor dots (M dots) adjacent to the six P dots, any change in the charge occupation of the P dots will affect the <a class="reference internal" href="../gloss.html#gls-chempot-fermi-e"><span class="std std-ref">electro-chemical potential</span></a> of the sensor dot. If we allow for a small (yet measurable) current to flow through each sensor dot, then loading and unloading events in the P dots will cause large changes in the current of the sensor dots, as we saw in the <a class="reference internal" href="../2-sensing-dot/sensing-dot.html#dodson2-6"><span class="std std-ref">figure from Dodson’s paper earlier</span></a>.</p>
 <p>We won’t delve into the specifics here, but in these multi-dot devices, the fact that the distance from each sensor dot to each quantum dot plays a key role in charge sensing. By cleverly modulating the gate voltages and precisely measuring the resulting current shifts in the measurement dots, you can distinguish loading and unloading events between different dots.</p>
 </section>
 <section id="pairwise-stability-diagrams">
-<h3>Pairwise Stability Diagrams<a class="headerlink" href="#pairwise-stability-diagrams" title="Permalink to this heading">#</a></h3>
-<p>We previously discussed stability diagrams in the context of double dots, and the <em>exact same principles</em> apply to these multi-dot arrays as well. In cataloging the functionality of these devices pairwise stability diagrams (exactly like the ones we have shown for double dots) are a crucial tool. To generate these diagrams, two dots will be isolated, which you can imagine as setting the voltages for all of the dots and gates afterwards to match the drain bath voltage, and setting the voltage of all the previous dots and gates to match the source bath voltage. In this configuration, you are essentially just dealing with a <a class="reference internal" href="../3-double-dot/double-dot.html"><span class="doc std std-doc">double dot device</span></a>, and you can treat it in the exact same way. In particular, to classify the behavior of the gates and dots it is typical to make stability diagrams in which the dot voltages are swept while plotting current changes on a heat map. Below is a figure from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha Paper</span></a> that shows stability diagrams for each pair of adjacent dots in their six quantum dot device.</p>
+<h3>Pairwise Stability Diagrams<a class="headerlink" href="#pairwise-stability-diagrams" title="Link to this heading">#</a></h3>
+<p>We previously discussed stability diagrams in the context of double dots, and the <em>exact same principles</em> apply to these multi-dot arrays as well. In cataloging the functionality of these devices pairwise stability diagrams (exactly like the ones we have shown for double dots) are a crucial tool. To generate these diagrams, two dots will be isolated, which you can imagine as setting the voltages for all of the dots and gates afterwards to match the drain bath voltage, and setting the voltage of all the previous dots and gates to match the source bath voltage. In this configuration, you are essentially just dealing with a <a class="reference internal" href="../3-double-dot/double-dot.html"><span class="std std-doc">double dot device</span></a>, and you can treat it in the exact same way. In particular, to classify the behavior of the gates and dots it is typical to make stability diagrams in which the dot voltages are swept while plotting current changes on a heat map. Below is a figure from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha Paper</span></a> that shows stability diagrams for each pair of adjacent dots in their six quantum dot device.</p>
 <figure class="align-default" id="ha-fig4a">
 <a class="reference internal image-reference" href="../../_images/HA-fig4a.png"><img alt="../../_images/HA-fig4a.png" src="../../_images/HA-fig4a.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Figure 4 panel A from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha paper</span></a>. This figure shows how we can measure the gate voltages that yield a certain charge configuration for each dot thanks to our understanding of how to read these stability diagrams.</span><a class="headerlink" href="#ha-fig4a" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Figure 4 panel A from the <a class="reference download internal" download="" href="../../_downloads/f919cfa6a1103f62569b9a3bc8ae6985/HaHa.pdf"><span class="xref download myst">Ha Ha paper</span></a>. This figure shows how we can measure the gate voltages that yield a certain charge configuration for each dot thanks to our understanding of how to read these stability diagrams.</span><a class="headerlink" href="#ha-fig4a" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Notice in the figure above that no two stability diagrams are the same - which is precisely why creating these stability diagrams is so useful in the first place. Due to the inherent bounds on precision of manufacturing, the device will never behave <em>ideally</em>, so creating these stability diagrams can be a great way to benchmark the performance of these devices.</p>
@@ -542,7 +556,7 @@ By \'24 HRL Clinic Team
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
