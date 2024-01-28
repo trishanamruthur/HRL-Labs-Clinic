@@ -39,11 +39,13 @@ This repository uses the workflow at ```.github/workflows/build-site.yml``` to a
 ### Building Notebook Locally
 Clone this repository after Jupyter Book is set up.
 
-Run the following in the terminal
+Run the following in the terminal:
 ```
 jupyter-book build --all Charge-Stability
 ```
 Copy given url to a browser to view Notebook locally.
-Once notebook is built, further instructions for features can be found in Documentation/Tutorials section of site.
 
 Note: the --all recompiles the pages, so don't need to build folder when recompiling
+
+### How to Make Pages/ Elements
+Once the book is built, further instructions for features can be found in the Setup Documentation subsection under Documentation/Tutorials.

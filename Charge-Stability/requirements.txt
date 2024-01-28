@@ -5,3 +5,4 @@ jupyterquiz
 jupytercards
 bokeh
 IPython
+manim
