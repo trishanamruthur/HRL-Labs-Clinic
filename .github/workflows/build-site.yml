@@ -22,17 +22,17 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev
-        pip install -r Charge-Stability/requirements.txt
+        pip install -r HRL_book/requirements.txt
 
 
     # Build the book
     - name: Build the book
-      run: |
-        jupyter-book build Charge-Stability
+      run: |  
+        jupyter-book build HRL_book
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.5.9
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./Charge-Stability/_build/html
+        publish_dir: ./HRL_book/_build/html
