@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
@@ -176,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     Quantum Dot Measurement and Stability
                 </a>
             </li>
@@ -190,12 +190,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../2-sensing-dot/sensing-dot.html">Measuring Charge in Quantum Dots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3-double-dot/double-dot.html">Double Quantum Dots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4-qd-arrays/quantum-dot-arrays.html">Charge Sensing in Quantum Dot Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../subtopicquiz.html">Subtopic Quiz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gloss.html">Glossary and Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../papersummary.html">Paper Summaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5-quiz/subtopicquiz.html">Subtopic Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6-gloss/gloss.html">Glossary and Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7-paper-summary/papersummary.html">Paper Summaries</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../documentation/intro.html">Documentation/Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/animations_tutorial.html">Animations Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/quizzes.html">Quizzes in Jupyter Book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/sliders_tutorial.html">Sliders/Interactive Elements Tutorial</a></li>
@@ -466,7 +467,7 @@ document.write(`
 <section id="overview-of-a-single-spin-and-single-quantum-dot">
 <h2>Overview of a Single Spin and Single Quantum Dot<a class="headerlink" href="#overview-of-a-single-spin-and-single-quantum-dot" title="Link to this heading">#</a></h2>
 <p>The Loss-DiVincenzo (LD) spin qubit is a single-electron spin qubit that consists of a direct mapping between spin operators and encoded Pauli operators. These qubits involve electrons tunneling to/from fermionic electron baths. Higher energy quantum dot spin states will allow for tunneling to the Fermi sea, and the static magnetic field of the electron bath will prevent tunneling from lower-energy spin states. The spin state of the electron, and thus the qubit state, is determined by the presence or absence of tunneling events. The Loss-DiVincenzo model serves as a basis for further developments in spin-qubits. (Based on <a class="reference internal" href="#../../../PDFs/Burkard.pdf"><span class="xref myst">Burkard et al</span></a> ).</p>
-<p>To further elaborate on the <a class="reference internal" href="../gloss.html#gls-quantum-dot"><span class="std std-ref">quantum dot</span></a> itself, it is a structure filled with electrons that is coupled to electron reservoirs. As seen in both Figure 1 of Hanson and in the animation, electrons from the reservoirs from either side of dot tunnel in and out based on the Fermi energy levels. Single quantum dots involve the loading/unloading of single electrons (or coupled, discussed later) in and out from the reservoirs, a source and a drain where the flow of the electrons move from source to dot to drain, with tunnel barriers as the connection between.</p>
+<p>To further elaborate on the <a class="reference internal" href="../6-gloss/gloss.html#gls-quantum-dot"><span class="std std-ref">quantum dot</span></a> itself, it is a structure filled with electrons that is coupled to electron reservoirs. As seen in both Figure 1 of Hanson and in the animation, electrons from the reservoirs from either side of dot tunnel in and out based on the Fermi energy levels. Single quantum dots involve the loading/unloading of single electrons (or coupled, discussed later) in and out from the reservoirs, a source and a drain where the flow of the electrons move from source to dot to drain, with tunnel barriers as the connection between.</p>
 </section>
 <section id="coulomb-blockades">
 <h2>Coulomb Blockades<a class="headerlink" href="#coulomb-blockades" title="Link to this heading">#</a></h2>
@@ -477,7 +478,7 @@ document.write(`
 </section>
 <section id="animation-of-loading-and-unloading-dot">
 <h2>Animation of Loading and Unloading Dot<a class="headerlink" href="#animation-of-loading-and-unloading-dot" title="Link to this heading">#</a></h2>
-<p>This animation demonstrates the loading and unloading of a quantum dot from the electron wells, and how <a class="reference internal" href="../gloss.html#gls-chempot-fermi-e"><span class="std std-ref">Fermi energy levels</span></a> affect the movement (or lack thereof) of the dot. For a single quantum dot, depending on the Fermi energy levels of the source and drain and the M1 gate the electron will either move or stay in place. If the energy of the M1 gate is higher than source, electrons will not be able to move from the source, and a similar blockage occurs when the drain is at a higher Fermi energy than the gate.</p>
+<p>This animation demonstrates the loading and unloading of a quantum dot from the electron wells, and how <a class="reference internal" href="../6-gloss/gloss.html#gls-chempot-fermi-e"><span class="std std-ref">Fermi energy levels</span></a> affect the movement (or lack thereof) of the dot. For a single quantum dot, depending on the Fermi energy levels of the source and drain and the M1 gate the electron will either move or stay in place. If the energy of the M1 gate is higher than source, electrons will not be able to move from the source, and a similar blockage occurs when the drain is at a higher Fermi energy than the gate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Video</span>

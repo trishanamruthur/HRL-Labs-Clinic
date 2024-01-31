@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
@@ -176,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     Quantum Dot Measurement and Stability
                 </a>
             </li>
@@ -190,12 +190,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../2-sensing-dot/sensing-dot.html">Measuring Charge in Quantum Dots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3-double-dot/double-dot.html">Double Quantum Dots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4-qd-arrays/quantum-dot-arrays.html">Charge Sensing in Quantum Dot Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../subtopicquiz.html">Subtopic Quiz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gloss.html">Glossary and Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../papersummary.html">Paper Summaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5-quiz/subtopicquiz.html">Subtopic Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6-gloss/gloss.html">Glossary and Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7-paper-summary/papersummary.html">Paper Summaries</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../documentation/intro.html">Documentation/Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/animations_tutorial.html">Animations Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/quizzes.html">Quizzes in Jupyter Book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../documentation/sliders_tutorial.html">Sliders/Interactive Elements Tutorial</a></li>
@@ -457,7 +458,7 @@ document.write(`
 <h1>Electron Tunneling<a class="headerlink" href="#electron-tunneling" title="Link to this heading">#</a></h1>
 <section id="square-potential">
 <h2>Square Potential<a class="headerlink" href="#square-potential" title="Link to this heading">#</a></h2>
-<p>In Quantum Mechanics, particles can <a class="reference internal" href="../gloss.html#gls-tunneling"><span class="std std-ref">tunnel</span></a> through classically forbidden areas where  <span class="math notranslate nohighlight">\(E \leq V.\)</span> The <a class="reference internal" href="../gloss.html#gls-quantum-dot"><span class="std std-ref">quantum dot</span></a> works by having potential barriers surrounding the dot. Thus, an electron tunnels through a quantum dot. The T-gates’ voltage determines the height of the barrier, and therefore how hard it is for the electron to tunnel into the dot. Thus, the tunneling rate of the electron depends on the T-gates.</p>
+<p>In Quantum Mechanics, particles can <a class="reference internal" href="../6-gloss/gloss.html#gls-tunneling"><span class="std std-ref">tunnel</span></a> through classically forbidden areas where  <span class="math notranslate nohighlight">\(E \leq V.\)</span> The <a class="reference internal" href="../6-gloss/gloss.html#gls-quantum-dot"><span class="std std-ref">quantum dot</span></a> works by having potential barriers surrounding the dot. Thus, an electron tunnels through a quantum dot. The T-gates’ voltage determines the height of the barrier, and therefore how hard it is for the electron to tunnel into the dot. Thus, the tunneling rate of the electron depends on the T-gates.</p>
 <p>To understand tunneling, we can begin with a toy example. The dot is in the plunger gate which here has a constant potential <span class="math notranslate nohighlight">\(V_P\)</span>. The T-gates we simplify having the same constant voltage <span class="math notranslate nohighlight">\(V_T\)</span>. We further simplify by setting the source and drain potential of the dot having 0 voltage. Below is an equation for the potential around the dot.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -476,7 +477,7 @@ V_T &amp; x_2 &lt; x &lt; x_3\\
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">The Diagram of The Potential Energy</span><a class="headerlink" href="#pot-well" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Then, we can note that the <a class="reference internal" href="../gloss.html#gls-wavefxn"><span class="std std-ref">wave function</span></a> of the electron would satisfy <a class="reference internal" href="../gloss.html#gls-schrodinger"><span class="std std-ref">the Schrodinger equation</span></a>. To understand the procedure of solving the double-wall potential described here, <a class="reference internal" href="#../../../PDFs/Townsend_textbook.pdf"><span class="xref myst">Townsend</span></a> chapter 6.10 does a good job describing the general procedure. We will be following the procedure here. First, we can create a general wave function and solve for the coefficients using the boundary conditions.</p>
+<p>Then, we can note that the <a class="reference internal" href="../6-gloss/gloss.html#gls-wavefxn"><span class="std std-ref">wave function</span></a> of the electron would satisfy <a class="reference internal" href="../6-gloss/gloss.html#gls-schrodinger"><span class="std std-ref">the Schrodinger equation</span></a>. To understand the procedure of solving the double-wall potential described here, <a class="reference internal" href="#../../../PDFs/Townsend_textbook.pdf"><span class="xref myst">Townsend</span></a> chapter 6.10 does a good job describing the general procedure. We will be following the procedure here. First, we can create a general wave function and solve for the coefficients using the boundary conditions.</p>
 <p>Thus, our wave function would be as follows.
 $<span class="math notranslate nohighlight">\(
 \psi (x) = 
