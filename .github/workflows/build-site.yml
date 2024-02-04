@@ -27,7 +27,8 @@ jobs:
 
     # Build the book
     - name: Build the book
-      run: |  
+      run: |
+        jupyter-book clean --all HRL_book
         jupyter-book build HRL_book
 
     # Push the book's HTML to github-pages
