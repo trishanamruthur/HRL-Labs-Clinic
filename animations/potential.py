@@ -11,6 +11,8 @@ class RectGate:
         self.B = y - height/2
         self.T = y + height/2
         self.V = voltage
+        # list of linked gates
+        self._linked = []
 
     @staticmethod
     def from_edges(left, right, bottom, top, voltage=0):
@@ -33,15 +35,25 @@ class RectGate:
 
     def set_voltage(self, voltage):
         self.V = voltage
+        # update linked gates
+        for gate in self._linked:
+            gate.set_voltage(voltage)
+
+    def link(self, gate):
+        self._linked.append(gate)
+    
+    def unlink(self, gate):
+        self._linked.remove(gate)
 
     def __repr__(self):
         return f'RectGate({self.L} < x < {self.R}, {self.B} < y < {self.T}, V={self.V})'
 
 class GateGeometry:
-    ''' Defines a geometry of multiple gates '''
+    ''' Defines a geometry of multiple gates. '''
     def __init__(self, gates={}, depth=50e-9):
         self._gates = gates # dictionary of 'gate name': (gate, voltage)
         self._depth = depth # default depth for call
+        self._sx, self._dx = None, None # source and drain x positions
 
     # +++ BUILT IN +++
 
@@ -64,64 +76,180 @@ class GateGeometry:
 
     @property
     def gate_names(self):
+        ''' List of the names of each gate in this geometry. '''
         return list(self._gates)
+    
+    @property
+    def width(self) -> 'Union[float, None]':
+        ''' Returns the width of the geometry - i.e. the distance between the source and drain gates. '''
+        if self._sx is None or self._dx is None:
+            return None
+        else:
+            return self._dx - self._sx
     
     # +++ METHODS +++
 
-    def add_gate(self, name, gate):
-        ''' Add a gate to the geometry. '''
+    def add_gate(self, name:str, gate) -> None:
+        ''' Add a gate to the geometry.
+        
+        Parameters
+        ----------
+        name : str
+            Name of the gate.
+        gate : Any
+            The gate object to be added.
+        '''
         self._gates[name] = gate
 
-    def add_source_and_drain(self, source_x, drain_x, source_voltage=0, drain_voltage=-1e-3, inf=1e5, y_offset=0):
-        ''' Add source and drain gates to the geometry. '''
-        self.add_gate('S', RectGate(source_x - inf/2, y_offset, inf, inf, voltage=source_voltage))
-        self.add_gate('D', RectGate(drain_x + inf/2, y_offset, inf, inf, voltage=drain_voltage))
+    def add_source_and_drain(self, source_x:float, drain_x:float, source_voltage:float=0, drain_voltage:float=-1e-3, inf:float=1e5, y_offset:float=0):
+        ''' Add source and drain gates to the geometry.
+        
+        The source gate is bounded by (-inf, source_x) in the x direction and (-inf+y_offset, inf+y_offset) in the y direction. The drain gate is bounded by (drain_x, inf) in the x direction and (-inf+y_offset, inf+y_offset) in the y direction. The source and drain gates are assigned the keys 'S' and 'D', respectively.
 
-    def add_measure_dot(self, gate_width, height, gap, y_offset=0, gate_voltage=0, dot_voltage=0):
-        ''' Add a measure dot to the geometry. '''
-        # make sure there is a source and drain
+        Parameters
+        ----------
+        source_x : float
+            The x position of the source gate.
+        drain_x : float
+            The x position of the drain gate.
+        source_voltage : float (default=0)
+            The voltage of the source gate.
+        drain_voltage : float (default=-1e-3)
+            The voltage of the drain gate.
+        inf : float (default=1e5)
+            The infinity value for the gate.
+        y_offset : float (default=0)
+            The y offset of the source and drain gates.
+        '''
+        # create source and drain
+        s = RectGate.from_edges(-inf, source_x, -inf+y_offset, inf+y_offset, voltage=source_voltage)
+        d = RectGate.from_edges(drain_x, inf, -inf+y_offset, inf+y_offset, voltage=drain_voltage)
+        # add the gates
+        self.add_gate('S', s)
+        self.add_gate('D', d)
+        # update internal variables
+        self._sx, self._dx = source_x, drain_x
+
+    def add_alternating(self, n:int, p_size:float, x_size:float, gap:'Union[float,None]'=None, p_voltage:float=0, x_voltage:float=0, y_offset:float=0, create_source_and_drain:bool=False, s_voltage:float=0, d_voltage:float=0) -> None:
+        ''' Add alternating gates to the geometry.
+        
+        Parameters
+        ----------
+        n : int
+            Number of plunger gates.
+        p_size : float
+            The size of the plunger gates.
+        x_size : float
+            The size of the barrier gates.
+        gap : Union[float,None] (default=None)
+            The gap between the gates. If the gap is none, it will be interpreted from pre-existing source and drain gates. If there are no source and drain gates, an error will be raised.
+        p_voltage : float (default=0)
+            The voltage of the potential gates.
+        x_voltage : float (default=0)
+            The voltage of the potential gates.
+        y_offset : float (default=0)
+            The y offset of the potential gates.
+        create_source_and_drain : bool (default=False)
+            If true and all three size parameters (p_size, x_size, gap) are specified, the source and drain will be created with default parameters. Note that the y_offset only applies to the P and X gates, not the source and drain gates.
+        s_voltage : float (default=0)
+            The voltage of the source gate (if this method is creating it).
+        d_voltage : float (default=-1e-3)
+            The voltage of the drain gate (if this method is creating it).
+
+        Throws
+        ------
+        AttributeError
+            If there are no source and drain gates and the gap is not specified.
+        '''
+        # check for source and drain gates if gap is unspecified
+        if gap is None:
+            if ('S' not in self._gates) or ('D' not in self._gates):
+                raise AttributeError('Source and drain gates must be added before the alternating gates, or a gap must be specified.')
+            else:
+                # otherwise, calculate the gap
+                gap = (self.width - n*p_size - (n+1)*x_size) / (2*(n+1))
+        elif create_source_and_drain:
+            # don't overwrite source and drain gates if they already exist
+            if ('S' in self._gates) or ('D' in self._gates):
+                raise AttributeError('Source and drain gates already exist. Cannot create new source and drain gates.')
+            else:
+                # create source and drain gates with default parameters
+                width = n*p_size + (n+1)*x_size + 2*gap*(n+1)
+                self.add_source_and_drain(-width/2, width/2, source_voltage=s_voltage, drain_voltage=d_voltage)
+        # check all dimensions are >= 0
+        if gap < 0 or p_size < 0 or x_size < 0:
+            raise ValueError(f'All gate dimensions must be non-negative. Got gap={gap}, p_size={p_size}, x_size={x_size}.')
+        # calculate the top and bottom of the gates
+        x_top, x_bottom = y_offset + x_size/2, y_offset - x_size/2
+        p_top, p_bottom = y_offset + p_size/2, y_offset - p_size/2
+        # create p gates
+        for i in range(n):
+            gate = RectGate.from_edges(
+                self._sx + (i+1)*(2*gap + x_size) + i*p_size,
+                self._sx + (i+1)*(2*gap + x_size) + (i+1)*p_size,
+                p_bottom, p_top, voltage=p_voltage)
+            self.add_gate(f'P{i}', gate)
+        # create x gates
+        for i in range(n+1):
+            gate = RectGate.from_edges(
+                self._sx + gap + i*(2*gap + x_size + p_size),
+                self._sx + gap + i*(2*gap + x_size + p_size) + x_size,
+                x_bottom, x_top, voltage=x_voltage)
+            self.add_gate(f'X{i}', gate)
+    
+    def add_measure(self, m_size:float, z_size:float, gap:float, m_voltage:float=0, z_voltage:float=0, y_offset:float=0):
+        '''
+        Add a measurement dot to the gate geometry.
+
+        Parameters
+        ----------
+        m_size : float
+            The size of the measure dot.
+        z_size : float
+            The size of the barrier gates.
+        gap : float
+            The gap between the gates.
+        m_voltage : float (default=0)
+            The voltage of the measure dot.
+        z_voltage : float (default=0)
+            The voltage of the barrier gates.
+        y_offset : float (default=0)
+            The y offset of the measurement dot and associated gates.
+        
+        Throws
+        ------
+        ValueError
+            If there are no source and drain gates.
+        '''
+        # check for source and drain gates
         if ('S' not in self._gates) or ('D' not in self._gates):
             raise ValueError('Source and drain gates must be added before the measure dot.')
-        # get the x positions of the source and drain edges
-        source_x = self['S'].R
-        drain_x = self['D'].L
-        # calculate measure dot width
-        m_width = drain_x - source_x - 4*gap - 2*gate_width
-        # add the gates
-        self.add_gate('Z1', RectGate(source_x+gap+gate_width/2, y_offset, gate_width, height, voltage=gate_voltage))
-        self.add_gate('Z2', RectGate(drain_x-gap-gate_width/2, y_offset, gate_width, height, voltage=gate_voltage))
-        # add measure dot
-        self.add_gate('M', RectGate((source_x+drain_x)/2, y_offset, m_width, height, voltage=dot_voltage))
+        # calculate how much to extend source and drain gates by
+        ext = (self.width - m_size - 2*z_size - 4*gap) / 2
+        # ensure all dimensions are >= 0
+        if ext < 0 or m_size < 0 or z_size < 0 or gap < 0:
+            raise ValueError(f'All gate dimensions must be non-negative. Got ext={ext}, m_size={m_size}, x_size={z_size}, gap={gap}.')
+        # calculate top and bottom of m and x gates
+        m_top, m_bottom = y_offset + m_size/2, y_offset - m_size/2
+        z_top, z_bottom = y_offset + z_size/2, y_offset - z_size/2
+        
+        # create source and drain extensions
+        if ext != 0:
+            gate = RectGate.from_edges(self._sx, self._sx + ext, m_bottom, m_top, voltage=self['S'].V)
+            self.add_gate('S_ext', gate)
+            gate = RectGate.from_edges(self._dx - ext, self._dx, m_bottom, m_top, voltage=self['D'].V)
+            self.add_gate('D_ext', gate)
 
-def alternating_spacing(
-        num_dots, dot_width, gate_width, height, gap=0, dot_voltage=0,
-        gate_voltage=0, source_voltage=0, drain_voltage=-1e-3, inf=1e5, gate_y=0):
-    # calculate the total width of the geometry
-    total_width = num_dots * dot_width + (num_dots + 1) * gate_width + (2 * num_dots + 2) * gap
-    # length between the center of the dots on either side
-    total_dots_length = total_width - 2 * gate_width - 4 * gap - dot_width
-    # length between the center of the gates on either side
-    total_gates_width = total_width - 2 * gap - gate_width
-    
-    # initialize the geometry object to hold all gates
-    geo = GateGeometry()
-
-    # add source and drain gates
-    geo.add_source_and_drain(-total_width/2, total_width/2, source_voltage=source_voltage, drain_voltage=drain_voltage, inf=inf, y_offset=0, )
-    
-    # loop to add the potential dot plungers
-    for i in range(num_dots):
-        x = total_dots_length * (i/(num_dots-1) - 0.5)
-        geo.add_gate(f'P{i}', RectGate(x, gate_y, dot_width, height, voltage=dot_voltage))
-    
-    # loop to construct gates between dots
-    for i in range(num_dots+1):
-        x = total_gates_width * (i/num_dots - 0.5)
-        geo.add_gate(f'X{i}', RectGate(x, gate_y, gate_width, height, voltage=gate_voltage))
-    
-    # return the populated geometry   
-    return geo
-
-
-if __name__ == '__main__':
-    g = alternating_spacing(3, 5, 2, 4, gap=1, dot_voltage=-0.002, gate_voltage=0.001)
+            # link source and drain gates with extensions
+            self['S'].link(self['S_ext'])
+            self['D'].link(self['D_ext'])
+        
+        # create barrier gates
+        self.add_gate('Z0',
+            RectGate.from_edges(self._sx + ext + gap, self._sx + ext + gap + z_size, z_bottom, z_top, voltage=z_voltage))
+        self.add_gate('Z1',
+            RectGate.from_edges(self._dx - ext - gap - z_size, self._dx - ext - gap, z_bottom, z_top, voltage=z_voltage))
+        
+        # create measure dot
+        self.add_gate('M',
+            RectGate.from_edges(self._sx + ext + 2*gap + z_size, self._dx - ext - 2*gap - z_size, m_bottom, m_top, voltage=m_voltage))
