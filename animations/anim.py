@@ -12,14 +12,27 @@ mn.config.verbosity = "WARNING"
 class gatepot(mn.ThreeDScene):
     def construct(self):
         g = GateGeometry()
-        g.add_alternating(n=3, p_size=90e-9, x_size=50e-9, gap=10e-9, p_voltage=-2e-3, x_voltage=1e-3, y_offset=95e-9, create_source_and_drain=True, s_voltage=1e-4, d_voltage=0)
-        g.add_measure(m_size=90e-9, z_size=50e-9, gap=10e-9, m_voltage=-1e-3, z_voltage=1e-3, y_offset=-95e-9)
 
-        # g = alternating_spacing(num_dots=3, dot_width=90e-9, gate_width=50e-9, height=90e-9, gap=10e-9, dot_voltage=-0.002, gate_voltage=0.001, drain_voltage=-1e-4, gate_y=95e-9)
+        g.add_alternating(
+            n=3,
+            p_size=90e-9,
+            x_size=50e-9,
+            gap=10e-9,
+            p_voltage=-2e-3,
+            x_voltage=1e-3,
+            y_offset=95e-9,
+            create_source_and_drain=True,
+            s_voltage=1e-4,
+            d_voltage=0)
 
-        # g.add_measure_dot(50e-9, 90e-9, 10e-9, gate_voltage=0.001, dot_voltage=-0.0005, y_offset=-95e-9)
-        
-        # self.set_camera_orientation(phi=60 * mn.DEGREES, theta=-60 * mn.DEGREES, zoom=0.9)
+        g.add_measure(
+            m_size=90e-9,
+            z_size=50e-9,
+            gap=10e-9,
+            m_voltage=-1e-3,
+            z_voltage=1e-3,
+            y_offset=-95e-9)
+
         self.set_camera_orientation(phi=0, theta=-mn.PI/2, zoom=1)
         
         ax = mn.ThreeDAxes(
@@ -73,9 +86,9 @@ class gatepot(mn.ThreeDScene):
 
         self.play(mn.FadeOut(rects), run_time=1)
         self.wait(1)
-        '''
+        
         # wiggle gate voltages
-        for name, v in [('P1', -0.002), ('P2', -0.002), ('P1', -0.001)]: #, ('P1', -0.002), ('X0', 0.0015), ('P0', -0.0015), ('P1', -0.001), ('X2', 0.0015), ('S', 0.0003), ('D', -3e-4)]:
+        for name, v in [('P1', -0.001), ('P1', -0.002), ('P2', -0.0005), ('P2', -0.002)]: #, ('P1', -0.002), ('X0', 0.0015), ('P0', -0.0015), ('P1', -0.001), ('X2', 0.0015), ('S', 0.0003), ('D', -3e-4)]:
             g[name].set_voltage(v)
             surf.target = ax.plot_surface(
                 function=g,
@@ -85,7 +98,7 @@ class gatepot(mn.ThreeDScene):
             
             self.play(mn.MoveToTarget(surf), run_time=2)
             self.wait(1.5)
-        '''
+        
 
 
 class testing(mn.ThreeDScene):
