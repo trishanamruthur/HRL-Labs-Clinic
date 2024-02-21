@@ -100,6 +100,127 @@ class gatepot(mn.ThreeDScene):
             self.wait(1.5)
         
 
+class tunneling(mn.ThreeDScene):
+    def construct(self):
+        g = GateGeometry()
+
+        g.add_alternating(
+            n=3,
+            p_size=90e-9,
+            x_size=50e-9,
+            gap=10e-9,
+            p_voltage=-2e-3,
+            x_voltage=1.5e-3,
+            y_offset=95e-9,
+            create_source_and_drain=True,
+            s_voltage=1e-4,
+            d_voltage=0)
+
+        g.add_measure(
+            m_size=90e-9,
+            z_size=50e-9,
+            gap=10e-9,
+            m_voltage=-1e-3,
+            z_voltage=1e-3,
+            y_offset=-95e-9)
+
+        # add axes
+        ax = mn.ThreeDAxes(
+            x_range=(-400e-9, 400e-9, 100e-9), 
+            y_range=(-200e-9, 200e-9, 100e-9), 
+            z_range=(-5e-4, 5e-4, 1e-4),
+            axis_config={'include_ticks': True},
+            tips=False)
+        self.add(ax)
+
+        # add surface plot
+        surf = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        self.add(surf)
+
+        # move camera
+        # self.set_camera_orientation(phi=60*mn.DEGREES, theta=60*mn.DEGREES, zoom=0.75)
+        self.set_camera_orientation(phi=60*mn.DEGREES, theta=80*mn.DEGREES, zoom=0.75)
+
+        # wait for a second
+        self.wait(1)
+
+        # create electron
+        electron = mn.Sphere(
+            center=ax.coords_to_point(-375e-9, 95e-9, 20e-6),
+            radius=0.2,
+            color=mn.RED)
+        self.add(electron)
+        self.wait(1)
+
+        # create electron target in P0
+        electron.generate_target()
+        electron.target.move_to(ax.coords_to_point(-160e-9, 95e-9, -300e-6))
+        # create surface target while electron moves
+        surf.save_state()
+        g['X0'].set_voltage(-1.5e-3)
+        surf.target = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        g['X0'].set_voltage(1.5e-3)
+        self.play(
+            mn.Succession(mn.MoveToTarget(surf), mn.Restore(surf)),
+            mn.MoveToTarget(electron))
+        
+        self.wait(2)
+
+        # create electron target in P1
+        electron.generate_target()
+        electron.target.move_to(ax.coords_to_point(0, 95e-9, -300e-6))
+        # create surface target while electron moves
+        surf.save_state()
+        g['X1'].set_voltage(-1.5e-3)
+        surf.target = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        g['X1'].set_voltage(1.5e-3)
+        self.play(
+            mn.Succession(mn.MoveToTarget(surf), mn.Restore(surf)),
+            mn.MoveToTarget(electron))
+        
+        self.wait(2)
+
+        # create electron target in P1
+        electron.generate_target()
+        electron.target.move_to(ax.coords_to_point(160e-9, 95e-9, -300e-6))
+        # create surface target while electron moves
+        surf.save_state()
+        g['X2'].set_voltage(-1.5e-3)
+        surf.target = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        g['X2'].set_voltage(1.5e-3)
+        self.play(
+            mn.Succession(mn.MoveToTarget(surf), mn.Restore(surf)),
+            mn.MoveToTarget(electron))
+        '''
+        # wiggle gate voltages
+        for name, v in [('X0', -1e-3), ('X0', 1.5e-3), ('X1', -1e-3), ('X1', 1.5e-3)]:
+            g[name].set_voltage(v)
+            surf.target = ax.plot_surface(
+                function=g,
+                u_range=(-400e-9, 400e-9),
+                v_range=(-300e-9, 300e-9),
+                fill_opacity=0.3)
+            
+            self.play(mn.MoveToTarget(surf), run_time=2)
+            self.wait(1.5)
+        '''
+        pass
 
 class testing(mn.ThreeDScene):
     def construct(self):
