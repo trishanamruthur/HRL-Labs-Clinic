@@ -15,6 +15,7 @@ chapters:
   - file: charge-stability/5-quiz/subtopicquiz.ipynb
   - file: charge-stability/6-gloss/gloss
   - file: charge-stability/7-paper-summary/papersummary
+  - file: charge-stability/8-spaghetti/spaghetti.ipynb
   - file: charge-stability/roadmap.ipynb
 - file: documentation/intro.md
   sections:
@@ -30,3 +31,4 @@ chapters:
     - file: documentation/setup/jupyterhub/intro.md
     - file: documentation/setup/gitlab/intro.md
     - file: documentation/setup/website/intro.md
+  - file: documentation/video-embeds.ipynb
