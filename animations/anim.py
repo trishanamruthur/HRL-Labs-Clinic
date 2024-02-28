@@ -227,10 +227,22 @@ class tunneling(mn.ThreeDScene):
 class fun_tunneling(mn.ThreeDScene):
     def construct(self):
         g = Dots()
-        g.add_dot('P0', -160e-9, 95e-9, 20e-9, -1e-3)
-        g.add_dot('P1', 0, 0, 50e-9, 1e-3)
+        # g.add_dot('P0', -160e-9, 95e-9, 20e-9, -1e-3)
+        # g.add_dot('P1', 0, 0, 50e-9, 1e-3)
         # g.add_dot('P2', 160e-9, -95e-9, 20e-9, -1e-3)
 
+        WELL = -1e-3
+        SOFT_WELL = -0.2e-3
+        BARRIER = 1e-4
+        g.add_alternating(
+            n=3,
+            p_rad=90e-9,
+            x_rad=135e-9,
+            spacing=5e-9,
+            p_h=WELL,
+            x_h=BARRIER,
+            y_offset=95e-9)
+        
         # add axes
         ax = mn.ThreeDAxes(
             x_range=(-400e-9, 400e-9, 100e-9), 
@@ -239,9 +251,6 @@ class fun_tunneling(mn.ThreeDScene):
             axis_config={'include_ticks': True},
             tips=False)
         self.add(ax)
-        
-        print(g(0,0))
-        print(g.positions)
 
         # add surface plot
         surf = ax.plot_surface(
@@ -257,6 +266,39 @@ class fun_tunneling(mn.ThreeDScene):
 
         # wait for a second
         self.wait(1)
+
+        # add electrons!
+        e0 = mn.Sphere(
+            center = ax.coords_to_point(*g.get_pos('P0'), 0), radius=0.2, color=mn.RED)
+        e1 = mn.Sphere(
+            center = ax.coords_to_point(*g.get_pos('P1'), 0), radius=0.2, color=mn.RED)
+        
+        # targets for interaction animation
+        surf.save_state()
+        g.edit_height('P0', SOFT_WELL)
+        g.edit_height('X1', WELL)
+        g.edit_height('P1', SOFT_WELL)
+
+        e0.save_state()
+        e1.save_state()
+        e0.generate_target()
+        e1.generate_target()
+        x, y, _ = ax.coords_to_point(*g.get_pos('X1'),0)
+        e0.target.move_to(np.array([x-0.3, y, 0]))
+        e1.target.move_to(np.array([x+0.3, y, 0]))
+
+        surf.target = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        
+        self.play(mn.Succession(mn.MoveToTarget(surf), mn.Restore(surf)),
+            mn.Succession(mn.MoveToTarget(e0), mn.Restore(e0)),
+            mn.Succession(mn.MoveToTarget(e1), mn.Restore(e1)), run_time=2)
+
+        self.wait(2)
+
         '''
         # create electron
         electron = mn.Sphere(
