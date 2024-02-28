@@ -264,14 +264,15 @@ class fun_tunneling(mn.ThreeDScene):
         # self.set_camera_orientation(phi=60*mn.DEGREES, theta=60*mn.DEGREES, zoom=0.75)
         self.set_camera_orientation(phi=60*mn.DEGREES, theta=80*mn.DEGREES, zoom=0.75)
 
-        # wait for a second
-        self.wait(1)
-
         # add electrons!
         e0 = mn.Sphere(
-            center = ax.coords_to_point(*g.get_pos('P0'), 0), radius=0.2, color=mn.RED)
+            center = ax.coords_to_point(*g.get_pos('P0'), 0), radius=0.2)
         e1 = mn.Sphere(
-            center = ax.coords_to_point(*g.get_pos('P1'), 0), radius=0.2, color=mn.RED)
+            center = ax.coords_to_point(*g.get_pos('P1'), 0), radius=0.2)
+        self.add(e0, e1)
+
+        # wait for a second
+        self.wait(1)
         
         # targets for interaction animation
         surf.save_state()
