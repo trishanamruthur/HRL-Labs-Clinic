@@ -411,3 +411,34 @@ class testing(mn.ThreeDScene):
         # self.wait(1)
         # self.play(mn.Create(labels))
         self.wait(2)
+
+
+class bath_test(mn.ThreeDScene):
+    def construct(self):
+        g = SquareBath(np.array([0,0]), 'UR', 1e-7, -1e-3)
+        # g.add_dot('P2', 160e-9, -95e-9, 20e-9, -1e-3)
+
+        # add axes
+        ax = mn.ThreeDAxes(
+            x_range=(-400e-9, 400e-9, 100e-9), 
+            y_range=(-200e-9, 200e-9, 100e-9), 
+            z_range=(-1.5e-3, 1.5e-3, 1e-4),
+            axis_config={'include_ticks': True},
+            tips=False)
+        self.add(ax)
+
+        # add surface plot
+        surf = ax.plot_surface(
+            function=g,
+            u_range=(-400e-9, 400e-9),
+            v_range=(-300e-9, 300e-9),
+            fill_opacity=0.3)
+        
+        # add surface plot
+        self.add(surf)
+
+        # move camera
+        self.set_camera_orientation(phi=60*mn.DEGREES, theta=80*mn.DEGREES, zoom=0.75)
+
+        # wait for a second
+        self.wait(1)

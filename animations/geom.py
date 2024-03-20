@@ -76,24 +76,24 @@ class Dots:
         i = self.names.index(name)
         return self.positions[i]
 
-# class Dot:
-#     def __init__(self, pos:np.ndarray, radius:float, depth:float):
-#         self._pos = pos
-#         self.radius = radius
-#         self.depth = depth
-
-#     def __str__(self):
-#         return f"Dot({self.pos}, r={self.radius}, d={self.depth})"
+class SquareBath:
+    def __init__(self, corner:np.ndarray, bounding:str, width:float=1, height:float=0):
+        self._x = corner
+        self._height = height
+        self._width = width
+        # set sign array
+        if bounding.upper() == 'UR':
+            self._signs = np.array([-1,-1])
+        elif bounding.upper() == 'UL':
+            self._signs = np.array([1,-1])
+        elif bounding.upper() == 'DR':
+            self._signs = np.array([-1,1])
+        elif bounding.upper() == 'DL':
+            self._signs = np.array([1,1])
+        else:
+            raise ValueError('Bounding must be one of "UR", "UL", "DR", or "DL".')
     
-#     def pos(self, z=None):
-#         if z is None:
-#             return self.pos
-#         else:
-#             return np.array([self.pos[0], self.pos[1], z])
+    def __call__(self, x, y) -> float:
+        s = np.array([x,y]).reshape(2,) - self._x
+        return self._height/(1 + np.sum(np.exp(self._signs * s * 5 / self._width)))
         
-#     def __call__(self, x:np.ndarray):
-#         r = np.linalg.norm(x - self.pos)
-#         if r >= self.radius:
-#             return 0
-#         else:
-#             return self.depth * (r/self.radius - 1)**2 * (r/self.radius + 1)**2
