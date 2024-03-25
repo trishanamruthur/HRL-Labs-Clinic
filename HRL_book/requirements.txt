@@ -6,3 +6,4 @@ jupytercards
 bokeh
 IPython
 manim
+ruff
