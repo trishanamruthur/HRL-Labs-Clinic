@@ -12,15 +12,23 @@ NUM = 100
 tc = 0.1
 
 script_dir = os.path.dirname(__file__)
-results_dir = os.path.join(script_dir, 'Results/')
+results_dir = os.path.join(script_dir, "Results/")
 
 if not os.path.isdir(results_dir):
     os.makedirs(results_dir)
 
+
 def get_evals(epsilon, tc=0.1, U=UMAX):
-    H = np.array([[U-epsilon, math.sqrt(2)*tc, 0], [math.sqrt(2)*tc, 0, math.sqrt(2)*tc], [0, math.sqrt(2)*tc, U+epsilon]])
+    H = np.array(
+        [
+            [U - epsilon, math.sqrt(2) * tc, 0],
+            [math.sqrt(2) * tc, 0, math.sqrt(2) * tc],
+            [0, math.sqrt(2) * tc, U + epsilon],
+        ]
+    )
     evals = np.linalg.eigvalsh(H)
     return evals
+
 
 def create_video(tc_values):
     frames = []
@@ -28,11 +36,13 @@ def create_video(tc_values):
     for tc in tc_values:
         fig, ax = plt.subplots()
         get_evals_plot(tc=tc)
-        ax.axis('on')  # Turn off axis to avoid unnecessary white space
+        ax.axis("on")  # Turn off axis to avoid unnecessary white space
 
         # Add title and text annotation
-        plt.title(f'Spaghetti Diagram\nValue of U: {UMAX}\n t_c = {tc:.2f}', fontsize=12)
-        
+        plt.title(
+            f"Spaghetti Diagram\nValue of U: {UMAX}\n t_c = {tc:.2f}", fontsize=12
+        )
+
         plt.xlabel("Detuning")
         plt.ylabel("Energy")
 
@@ -48,7 +58,8 @@ def create_video(tc_values):
     # Create a video from the frames
     video_file = os.path.join(script_dir, "tc_spag_3.mp4")
     clip = ImageSequenceClip(frames, fps=100)
-    clip.write_videofile(video_file, codec='libx264', audio=False)
+    clip.write_videofile(video_file, codec="libx264", audio=False)
+
 
 def get_evals_plot(tc=0.1, U=UMAX):
     biases = np.linspace(-2 * UMAX, 2 * UMAX, NUM)
@@ -64,12 +75,13 @@ def get_evals_plot(tc=0.1, U=UMAX):
         e2[i] = evals[1]
         e3[i] = evals[2]
 
-    plt.plot(biases, e1, label='Eigenvalue 1')
-    plt.plot(biases, e2, label='Eigenvalue 2')
-    plt.plot(biases, e3, label='Eigenvalue 3')
+    plt.plot(biases, e1, label="Eigenvalue 1")
+    plt.plot(biases, e2, label="Eigenvalue 2")
+    plt.plot(biases, e3, label="Eigenvalue 3")
 
     # Add legend
     plt.legend()
+
 
 # Define the range of tc values you want to visualize
 tc_values_to_visualize = np.linspace(0.05, 5, 1000)
