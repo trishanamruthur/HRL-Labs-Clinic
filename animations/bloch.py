@@ -33,7 +33,8 @@ class BlochSphere(manim.ThreeDScene):
         labels = axes.get_axis_labels(x_label=r"\vert{x}\rangle", y_label=r"\vert{y}\rangle", z_label=r"\vert{z}\rangle")
         labels[0].rotate(np.pi, axis=manim.OUT, about_point=1.5*manim.RIGHT)
         labels[2].rotate_about_origin(np.pi, axis=manim.OUT)
-        for l in labels: l.scale(0.8)
+        for label in labels:
+            label.scale(0.8)
         return manim.VGroup(bloch_sphere, axes, labels)
 
     def qubit(self, qubit:np.ndarray, **kwargs):
@@ -71,7 +72,7 @@ class BlochSphere(manim.ThreeDScene):
         # rotate about the z vector
         self.play(manim.Rotate(qubit, angle=5*np.pi/6, axis=manim.OUT, about_point=manim.ORIGIN), run_time=5/6)
 
-        # unbold the z vector
+        # un-bold the z vector
         self.play(manim.Restore(z_qb))
         self.wait(1)
 
