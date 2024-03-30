@@ -1,6 +1,5 @@
 import manim as mn
 from potential import *
-import matplotlib.pyplot as plt 
 import numpy as np
 from geom import *
 
