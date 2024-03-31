@@ -449,16 +449,14 @@ document.write(`
 <h1>Video Embed<a class="headerlink" href="#video-embed" title="Link to this heading">#</a></h1>
 <p>With markdown, we can create clickable image links to videos</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=8YwlenA4bdg"><img alt="Metallurgy Breakthrough: 3D Printing High-Strength Aluminum" src="https://img.youtube.com/vi/8YwlenA4bdg/maxresdefault.jpg" /></a></p>
-<html> 
-<body> 
-<p>
-We can embed local video files into a page.
-</p>
-<video width="400" controls>
-  <source src="../../Metallurgy.mp4" type="video/mp4">
-</video>
-</body> 
-</html><html>
+<p>We can embed local video files into a page in pure markdown. To use this method, you should drop the video you would like to embed in the videos folder in the root directory (i.e. <code class="docutils literal notranslate"><span class="pre">HRL_book/videos</span></code>). However, when you reference the video, pretend as though it is in the root directory itself (not in the videos folder). So for instance here we use <code class="docutils literal notranslate"><span class="pre">../PotentialWell.mp4</span></code> instead of the actual path <code class="docutils literal notranslate"><span class="pre">../videos/PotentialWell.mp4</span></code>.</p>
+<p>The code</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">video</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../PotentialWell.mp4&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;400&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span> <span class="na">controls</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>renders the video</p>
+<p><video src="../PotentialWell.mp4" width="400" type="video/mp4" controls></video></p>
+<html>
 <body>
 <p>
 Or we could directly embed Youtube videos
