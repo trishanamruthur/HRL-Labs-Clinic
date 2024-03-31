@@ -187,3 +187,15 @@ The same can be done with headers, sections, paragraphs, or virtually any text e
 ### File Organization
 ```
 So that a [hyperlink](documentation:file-organization) can be created later on (using the typical syntax: `[hyperlink](documentation:file-organization)`) that jumps users back to that header.
+
+### Code Style 
+To maintain code style for the files, this book uses a Ruff Linter. To check that all the files abide with Ruff's code style you can run 
+```
+ruff check
+```
+To check a single file, like test.ipynb, simply run 
+``` 
+ruff check test.ipynb
+```
+
+If you would like to change the specifications of the ruff linter, please see the [official documentation](https://docs.astral.sh/ruff/linter/#ruff-check). The configuration file for our ruff linter is called "ruff.toml." 
