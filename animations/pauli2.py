@@ -14,7 +14,7 @@ class PauliSpinBlockade2(Scene):
         YMIN = -9
         YMAX = 4
         # points for plotting eigenenergies
-        # we want 10n + 1 points for points at exactly 0, 10, 15
+        # we want 10n + 1 points for points at exactly bias=0, 10, 15
         NUM = 101
         # range must be greater than (-U-JMAX, U+JMAX)
         BIASRANGE = 2.5 * U
@@ -95,8 +95,10 @@ class PauliSpinBlockade2(Scene):
         dish.add(spaghetti.get_axis_labels(
             x_label=r'\epsilon', y_label=r'\text{Eigenenergy}'))
 
+        # display spaghetti diagram
         self.add(dish)
         self.wait(1)
+        # move it to left side of screen
         self.play(dish.animate.scale(.4).to_edge(LEFT))
         self.wait(1)
 
@@ -106,7 +108,7 @@ class PauliSpinBlockade2(Scene):
                 raise ValueError("bias2ind: bias out of bounds")
             return int((x + BIASRANGE) / (2 * BIASRANGE) * NUM)
 
-        # index of bias that we currently display in animation
+        # variable index of bias that we currently display in animation
         t = ValueTracker(bias2ind(0))
         def getBias():
             """Returns bias corresponding to current t"""
@@ -135,7 +137,7 @@ class PauliSpinBlockade2(Scene):
         dotplots = always_redraw(
             lambda: spaghetti.plot_line_graph(dotxs, [potfunc(x) for x in dotxs],
                                               line_color=WHITE, add_vertex_dots=False))
-        # bias marker on spaghetti diagram
+        # current bias marker on spaghetti diagram
         biasMarker = always_redraw(lambda: DashedLine(spaghetti.c2p(getBias(), YMIN), spaghetti.c2p(getBias(), YMAX), color=WHITE))
 
         # makes sure marker energies are within range of plot
@@ -158,27 +160,35 @@ class PauliSpinBlockade2(Scene):
                                  spaghetti.c2p(IMAGESTART + 3*DOTWIDTH, valid_val(triplet_eigvals, 0)), color=RED))
         tripMarker2 = always_redraw(lambda: DashedLine(spaghetti.c2p(-BIASRANGE, valid_val(triplet_eigvals, 1)),
                                  spaghetti.c2p(IMAGESTART + 3*DOTWIDTH, valid_val(triplet_eigvals, 1)), color=RED))
+        # arrow and label showing bias between dot potentials
         biasArrow = always_redraw(lambda: DoubleArrow(spaghetti.c2p(IMAGESTART + DOTWIDTH * 1.5, potfunc(IMAGESTART+DOTWIDTH)),
                                                       spaghetti.c2p(IMAGESTART + DOTWIDTH * 1.5, potfunc(IMAGESTART+2*DOTWIDTH)),
                                                       buff=0, tip_length=.2))
         biasLabel = always_redraw(lambda: Tex(r'$\epsilon$', font_size=32).next_to(biasArrow, LEFT, buff=.2))
+        # same for exchange energy. not currently used
         exchangeArrow = always_redraw(lambda: DoubleArrow(spaghetti.c2p(IMAGESTART + DOTWIDTH * .8, valid_val(singlet_eigvals, 0)),
                                                           spaghetti.c2p(IMAGESTART + DOTWIDTH * .8,
                                                                         valid_val(triplet_eigvals, 0) if valid_val(singlet_eigvals, 0) < 50 else 50),
                                                           buff=0, tip_length=.2))
         exchangeLabel = always_redraw(lambda: Tex(r'$J$', font_size=32).next_to(exchangeArrow, LEFT, buff=.2))
 
+        # add dot potentials, bias marker on spaghetti diagram,
+        # and bias arrow & label on dot potentials
         dish.add(dotplots, biasMarker, biasLabel, biasArrow)
+        # move the bias around a bit
         self.play(t.animate.set_value(bias2ind(U)))
         self.wait(.1)
         self.play(t.animate.set_value(bias2ind(0)))
         self.wait(1)
+        # remove arrow & label from potentials
         dish.remove(biasLabel, biasArrow)
-        dish.add(biasMarker, singMarker1, singMarker2, tripMarker1, tripMarker2)
+        # add markers for eigenenergies
+        dish.add(singMarker1, tripMarker1)
 
         def getAngle(vals, state):
+            """Returns portion of 2pi radians corresponding to probability
+            of finding a second electron in dot 1"""
             vec = vals[int(t.get_value())][state][1]
-            # relative probability of (2,0) vs. (1,1), times full circle
             # we ignore (0,2) as very unlikely ( < 10^-4)
             return vec[0]**2 / (vec[0]**2 + vec[1]**2) * 2 * PI
 
@@ -190,18 +200,24 @@ class PauliSpinBlockade2(Scene):
             color = PURE_BLUE if vals == singlet_vals else PURE_RED
             eigvals = singlet_eigvals if vals == singlet_vals else triplet_eigvals
             if dot == 1:
-                return AnnularSector(0, RADIUS, angle, (PI - angle) / 2, color=color).next_to(spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(eigvals, 0)), RIGHT, buff=RADIUS*.6)
+                return AnnularSector(0, RADIUS, angle, (PI - angle) / 2, color=color).next_to(
+                    spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(eigvals, 0)), RIGHT, buff=RADIUS*.6)
             else:
-                return AnnularSector(0, RADIUS, 2*PI - angle, (PI + angle) / 2, color=color).next_to(spaghetti.c2p(IMAGESTART+2*DOTWIDTH, valid_val(eigvals, 0)), RIGHT, buff=RADIUS*.6)
+                return AnnularSector(0, RADIUS, 2*PI - angle, (PI + angle) / 2, color=color).next_to(
+                    spaghetti.c2p(IMAGESTART+2*DOTWIDTH, valid_val(eigvals, 0)), RIGHT, buff=RADIUS*.6)
 
-        singletGroundElectron1 = always_redraw(lambda: AnnularSector(0, RADIUS, 2 * PI, 0, color=PURE_BLUE).next_to(spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(singlet_eigvals, 0)), LEFT, buff=RADIUS*.6))
+        # the electrons, shown as circle (sectors), in potentials
+        singletGroundElectron1 = always_redraw(lambda: AnnularSector(0, RADIUS, 2 * PI, 0, color=PURE_BLUE).next_to(
+            spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(singlet_eigvals, 0)), LEFT, buff=RADIUS*.6))
         singletGroundElectron2a = always_redraw(lambda: dote(singlet_vals, 1))
         singletGroundElectron2b = always_redraw(lambda: dote(singlet_vals, 2))
 
-        tripletGroundElectron1 = always_redraw(lambda: AnnularSector(0, RADIUS, 2 * PI, 0, color=PURE_RED).next_to(spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(triplet_eigvals, 0)), LEFT, buff=RADIUS*.6))
+        tripletGroundElectron1 = always_redraw(lambda: AnnularSector(0, RADIUS, 2 * PI, 0, color=PURE_RED).next_to(
+            spaghetti.c2p(IMAGESTART+DOTWIDTH, valid_val(triplet_eigvals, 0)), LEFT, buff=RADIUS*.6))
         tripletGroundElectron2a = always_redraw(lambda: dote(triplet_vals, 1))
         tripletGroundElectron2b = always_redraw(lambda: dote(triplet_vals, 2))
 
+        # just follow the captions
         caption = Tex('At $\epsilon=0$, one electron is in each dot, regardless of spin', font_size=40).next_to(dish, DOWN)
         dish.add(tripletGroundElectron1, tripletGroundElectron2a, tripletGroundElectron2b,
                  singletGroundElectron1, singletGroundElectron2a, singletGroundElectron2b)

@@ -1,8 +1,8 @@
-jupyter-book
-matplotlib
-numpy
-jupyterquiz
-jupytercards
-bokeh
-IPython
-manim
+jupyter-book==1.0.0
+matplotlib==3.8.3
+numpy==1.26.4
+jupyterquiz==2.6.3
+jupytercards==2.5.6
+bokeh==3.4.0
+IPython==8.23.0
+manim==0.18.0

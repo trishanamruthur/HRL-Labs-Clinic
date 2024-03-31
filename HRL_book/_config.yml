@@ -41,6 +41,8 @@ launch_buttons:
 sphinx:
   config:
     html_js_files:
+    # these all use cdns---must have local packages available to server otherwise
+    # update these paths accordingly. See documentation/setup/gitlab.
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     - https://cdn.jsdelivr.net/npm/mathjs@12.3.2/lib/browser/math.min.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
