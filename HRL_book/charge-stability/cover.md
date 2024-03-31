@@ -13,6 +13,9 @@ In this section we cover
 - how the properties of quantum dots in series can be systematically classified with [stability diagrams](sec:stability-diagrams)
 - how all of these principles can help us understand the [structure and function in HRL's current quantum dot devices](./4-qd-arrays/quantum-dot-arrays.md)
 
+```{tableofcontents}
+```
+
 ## References
 
 For more information on the topics covered in this section, we recommend
