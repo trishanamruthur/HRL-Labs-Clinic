@@ -46,6 +46,7 @@ sphinx:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     - https://cdn.jsdelivr.net/npm/mathjs@12.3.2/lib/browser/math.min.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    html_extra_path: ['videos']
 
 # THIS ENABLES LATEX CLAUSES LIKE \begin{align} BUT IT CAUSES PROBLEMS WITH INLINE EXPRESSIONS
 # parse:

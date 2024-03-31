@@ -17,6 +17,9 @@ chapters:
   - file: charge-stability/7-paper-summary/papersummary
   - file: charge-stability/8-spaghetti/spaghetti.ipynb
   - file: charge-stability/roadmap.ipynb
+- file: quantum-information/cover.md
+  sections:
+  - file: quantum-information/1-bloch-sphere/bloch-sphere.ipynb
 - file: documentation/intro.md
   sections:
   - file: documentation/getting_started.md
