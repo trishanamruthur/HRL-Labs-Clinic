@@ -2,3 +2,5 @@
 Bugs
 
 Added a file example.ipynb which is not in the toc, so it will not show up
+
+Added file latex.ipynb that has weird latex.

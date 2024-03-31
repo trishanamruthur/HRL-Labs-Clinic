@@ -16,6 +16,7 @@ chapters:
   - file: charge-stability/6-gloss/gloss
   - file: charge-stability/7-paper-summary/papersummary
   - file: charge-stability/8-spaghetti/spaghetti.ipynb
+  - file: charge-stability/9-sitevisitbugs/latex.ipynb
   - file: charge-stability/roadmap.ipynb
 - file: quantum-information/cover.md
   sections:
