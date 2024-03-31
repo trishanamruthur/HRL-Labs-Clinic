@@ -420,6 +420,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directive-boxes">Directive Boxes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labels-and-references">Labels and References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a></li>
 </ul>
 </li>
 </ul>
@@ -608,6 +609,18 @@ This is a labeled dropdown!
 </div>
 <p>So that a <a class="reference internal" href="#documentation-file-organization"><span class="std std-ref">hyperlink</span></a> can be created later on (using the typical syntax: <code class="docutils literal notranslate"><span class="pre">[hyperlink](documentation:file-organization)</span></code>) that jumps users back to that header.</p>
 </section>
+<section id="code-style">
+<h3>Code Style<a class="headerlink" href="#code-style" title="Link to this heading">#</a></h3>
+<p>To maintain code style for the files, this book uses a Ruff Linter. To check that all the files abide with Ruff’s code style you can run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruff</span> <span class="n">check</span>
+</pre></div>
+</div>
+<p>To check a single file, like test.ipynb, simply run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruff</span> <span class="n">check</span> <span class="n">test</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<p>If you would like to change the specifications of the ruff linter, please see the <a class="reference external" href="https://docs.astral.sh/ruff/linter/#ruff-check">official documentation</a>. The configuration file for our ruff linter is called “ruff.toml.”</p>
+</section>
 </section>
 </section>
 
@@ -684,6 +697,7 @@ This is a labeled dropdown!
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directive-boxes">Directive Boxes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labels-and-references">Labels and References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a></li>
 </ul>
 </li>
 </ul>
