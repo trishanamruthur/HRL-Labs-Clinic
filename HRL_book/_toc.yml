@@ -20,7 +20,8 @@ chapters:
 - file: documentation/intro.md
   sections:
   - file: documentation/getting_started.md
-  - file: documentation/animations_tutorial.ipynb
+  - file: documentation/animations_documentation/animations_tutorial.ipynb
+  - file: documentation/animations_documentation/editing_animations.ipynb
   - file: documentation/quizzes.ipynb
   - file: documentation/sliders_tutorial.ipynb
   - file: documentation/wall_of_truth.ipynb

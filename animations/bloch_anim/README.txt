@@ -1,0 +1,1 @@
+this folder has the code used for generating the bloch sphere animation. it should be noted that the picture-in-picture effect is achieved by generating the two animations (both in bloch.py) separately and using any kind of video editor (e.g. imovie) to stitch the videos together.

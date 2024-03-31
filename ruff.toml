@@ -1,0 +1,2 @@
+extend-include = ["*.ipynb"]
+fix = true

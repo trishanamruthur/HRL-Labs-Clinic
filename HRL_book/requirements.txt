@@ -6,3 +6,4 @@ jupytercards==2.5.6
 bokeh==3.4.0
 IPython==8.23.0
 manim==0.18.0
+ruff==0.3.4
