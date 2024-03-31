@@ -25,6 +25,7 @@ chapters:
   - file: documentation/getting_started.md
   - file: documentation/animations_documentation/animations_tutorial.ipynb
   - file: documentation/animations_documentation/editing_animations.ipynb
+  - file: documentation/video-embeds.ipynb
   - file: documentation/quizzes.ipynb
   - file: documentation/sliders_tutorial.ipynb
   - file: documentation/wall_of_truth.ipynb
@@ -35,4 +36,3 @@ chapters:
     - file: documentation/setup/jupyterhub/intro.md
     - file: documentation/setup/gitlab/intro.md
     - file: documentation/setup/website/intro.md
-  - file: documentation/video-embeds.ipynb
