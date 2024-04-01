@@ -4,3 +4,5 @@ Bugs
 Added a file example.ipynb which is not in the toc, so it will not show up
 
 Added file latex.ipynb that has weird latex.
+
+Added file image_video.ipynb with no embeds
