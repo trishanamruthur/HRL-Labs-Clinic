@@ -441,20 +441,21 @@ document.write(`
 <p>We will try our best not to get too into the weeds here (saving that for another section of this book), but as you hopefully know by now, all electrons have an intrinsic angular momentum known as <em>spin</em>. It is <strong>very important to note</strong> that the spin of any individual electron is <strong>not what represents a qubit in our triple quantum dot system</strong>. Instead, <em>the qubit is informationally encoded in the relative spins of the first two electrons</em>. Specifically, when the first two electrons are in the singlet state the system is encoding the <span class="math notranslate nohighlight">\(\ket{0}\)</span> state, and when they are in the triplet state the system is encoding a <span class="math notranslate nohighlight">\(\ket{1}\)</span> state.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">But what are singlet and triplet states?</p>
-<p>Since electrons are charged, the fact that they are spinning means that they act as little magnets. And similarly to big magnets when you bring two of them close together there is a preferred orientation. For big magnets we might call the preferred orientation the “ground state” and the other orientation the “excited state” since we have to push the magnets around to get them in that orientation, putting energy into the system.</p>
-<figure class="align-default" id="singlet-triplet-toy-model">
-<a class="reference internal image-reference" href="../../_images/singlet-triplet-toy-model.png"><img alt="../../_images/singlet-triplet-toy-model.png" src="../../_images/singlet-triplet-toy-model.png" style="height: 150px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">An illustration of two large magnets in ‘ground’ and ‘excited’ states. This is such a toy model for electrons it isn’t even funny, please keep reading to understand how electrons are different than large magnets.</span><a class="headerlink" href="#singlet-triplet-toy-model" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Unlike big magnets, two interacting electrons obey quantum mechanics and for reasons beyond the scope of this text (<a class="reference external" href="https://en.wikipedia.org/wiki/Spin%E2%80%93statistics_theorem">spin-statistics theorem</a>) electrons have three ways to be in an excited state and only one way to be in a ground state. It is these three excited states which are collectively referred to as the <em>triplet state</em>, and the ground state is called the <em>singlet state</em>.</p>
-<p>If you are familiar with quantum mechanics notation, we can represent the spins of electrons as arrow that are either spin up <span class="math notranslate nohighlight">\(\ket{\uparrow}\)</span> or down <span class="math notranslate nohighlight">\(\ket{\downarrow}\)</span>, then the triplet states can be expressed as</p>
+<p>Most of the details here are beyond the scope of this text (see resources below) but essentially, there are four ways for electron spins to be combined in order to satisfy the spin-statistics theorem. These are</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\ket{\uparrow\uparrow} \\ \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) \\ \ket{\downarrow\downarrow}\end{split}\]</div>
-<p>while the singlet state is</p>
+\[\begin{split}\ket{\uparrow\uparrow} \\ \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) \\ \ket{\downarrow\downarrow} \\
+\frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\big)\end{split}\]</div>
+<p>The first three here are symmetric under exchange of particles, and collectively represent the triplet state:</p>
 <div class="math notranslate nohighlight">
-\[\frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\big)\]</div>
+\[\ket{\psi_\text{triplet}} = c_1\ket{\uparrow\uparrow} + c_2\frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) + c_3\ket{\downarrow\downarrow}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, and <span class="math notranslate nohighlight">\(c_3\)</span> satisfy the usual normalization conditions. While the last of these is anti-symmetric under particle exchange, and is the singlet state:</p>
+<div class="math notranslate nohighlight">
+\[\ket{\psi_\text{singlet}} = \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\big)\]</div>
+<p><strong>Resources for further (general quantum mechanics) learning:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://phys.libretexts.org/Bookshelves/Quantum_Mechanics/Essential_Graduate_Physics_-_Quantum_Mechanics_(Likharev)/08%3A_Multiparticle_Systems/8.02%3A_Singlets_Triplets_and_the_Exchange_Interaction">Singlets, Triplets, and the Exchange Interaction</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Spin%E2%80%93statistics_theorem">Spin-statistics Theorem</a></p></li>
+</ul>
 </div>
 </section>
 <section id="the-bloch-sphere-a-careful-introduction">
@@ -466,7 +467,7 @@ document.write(`
 <div class="important admonition">
 <p class="admonition-title">The Bloch sphere does not exist in physical space!</p>
 <p>The Bloch sphere is a tool for visualizing qubits and qubit operations, but just because it exists in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> does not mean it is in any way connected to physical space.</p>
-<p>Saying that a qubit pointing up on the bloch sphere corresponds to something pointing up in the real world is like saying that a stock price going up risks damaging the roof of your building. The Bloch sphere is just a graph; a visualization tool. Got it? If you’re still confused, please direct any concerns to <a class="reference external" href="mailto:tdladd&#37;&#52;&#48;hrl&#46;com">Thaddeus Ladd</a>.</p>
+<p>Saying that a qubit pointing up on the bloch sphere corresponds to something pointing up in the real world is like saying that a stock price going up risks damaging the roof of your building. The Bloch sphere is just a graph; a visualization tool.</p>
 </div>
 <p>However, since the Bloch sphere does lie in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, it is conventional to give the states on the axes special names. For instance, the states <span class="math notranslate nohighlight">\(\ket{+\textbf{z}}\)</span> and <span class="math notranslate nohighlight">\(\ket{-\textbf{z}}\)</span> correspond to <span class="math notranslate nohighlight">\(\ket{0}\)</span> and <span class="math notranslate nohighlight">\(\ket{1}\)</span>, respectively (which you can check with the previous equation above). Likewise</p>
 <div class="math notranslate nohighlight">

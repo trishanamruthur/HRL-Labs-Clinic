@@ -13,27 +13,23 @@ We will try our best not to get too into the weeds here (saving that for another
 ````{admonition} But what are singlet and triplet states?
 :class: note, dropdown
 
-Since electrons are charged, the fact that they are spinning means that they act as little magnets. And similarly to big magnets when you bring two of them close together there is a preferred orientation. For big magnets we might call the preferred orientation the "ground state" and the other orientation the "excited state" since we have to push the magnets around to get them in that orientation, putting energy into the system.
-
-
-```{figure} ./singlet-triplet-toy-model.png
----
-height: 150px
-name: singlet-triplet-toy-model
----
-An illustration of two large magnets in 'ground' and 'excited' states. This is such a toy model for electrons it isn't even funny, please keep reading to understand how electrons are different than large magnets.
-```
-
-Unlike big magnets, two interacting electrons obey quantum mechanics and for reasons beyond the scope of this text ([spin-statistics theorem](https://en.wikipedia.org/wiki/Spin%E2%80%93statistics_theorem)) electrons have three ways to be in an excited state and only one way to be in a ground state. It is these three excited states which are collectively referred to as the _triplet state_, and the ground state is called the _singlet state_.
-
-If you are familiar with quantum mechanics notation, we can represent the spins of electrons as arrow that are either spin up $\ket{\uparrow}$ or down $\ket{\downarrow}$, then the triplet states can be expressed as
+Most of the details here are beyond the scope of this text (see resources below) but essentially, there are four ways for electron spins to be combined in order to satisfy the spin-statistics theorem. These are
 ```{math}
-\ket{\uparrow\uparrow} \\ \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) \\ \ket{\downarrow\downarrow}
-```
-while the singlet state is
-```{math}
+\ket{\uparrow\uparrow} \\ \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) \\ \ket{\downarrow\downarrow} \\
 \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\big)
 ```
+The first three here are symmetric under exchange of particles, and collectively represent the triplet state:
+```{math}
+\ket{\psi_\text{triplet}} = c_1\ket{\uparrow\uparrow} + c_2\frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\big) + c_3\ket{\downarrow\downarrow}
+```
+Where $c_1$, $c_2$, and $c_3$ satisfy the usual normalization conditions. While the last of these is anti-symmetric under particle exchange, and is the singlet state:
+```{math}
+\ket{\psi_\text{singlet}} = \frac{1}{\sqrt{2}}\big(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\big)
+```
+
+**Resources for further (general quantum mechanics) learning:**
+- [Singlets, Triplets, and the Exchange Interaction](https://phys.libretexts.org/Bookshelves/Quantum_Mechanics/Essential_Graduate_Physics_-_Quantum_Mechanics_(Likharev)/08%3A_Multiparticle_Systems/8.02%3A_Singlets_Triplets_and_the_Exchange_Interaction)
+- [Spin-statistics Theorem](https://en.wikipedia.org/wiki/Spin%E2%80%93statistics_theorem)
 ````
 
 ## The Bloch Sphere: A _Careful_ Introduction
@@ -48,7 +44,7 @@ Where $\theta$ ranges from $0$ to $\pi$ and $\phi$ from $0$ to $2\pi$. This expr
 :class: important
 The Bloch sphere is a tool for visualizing qubits and qubit operations, but just because it exists in $\mathbb{R}^3$ does not mean it is in any way connected to physical space.
 
-Saying that a qubit pointing up on the bloch sphere corresponds to something pointing up in the real world is like saying that a stock price going up risks damaging the roof of your building. The Bloch sphere is just a graph; a visualization tool. Got it? If you're still confused, please direct any concerns to [Thaddeus Ladd](mailto:tdladd@hrl.com).
+Saying that a qubit pointing up on the bloch sphere corresponds to something pointing up in the real world is like saying that a stock price going up risks damaging the roof of your building. The Bloch sphere is just a graph; a visualization tool.
 ```
 
 However, since the Bloch sphere does lie in $\mathbb{R}^3$, it is conventional to give the states on the axes special names. For instance, the states $\ket{+\textbf{z}}$ and $\ket{-\textbf{z}}$ correspond to $\ket{0}$ and $\ket{1}$, respectively (which you can check with the previous equation above). Likewise
