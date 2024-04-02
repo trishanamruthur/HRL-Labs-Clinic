@@ -5,7 +5,7 @@ import manim
 # create blank bloch sphere
 
 
-N_VEC = np.array([-np.sqrt(3)/2, 0, -0.5])
+N_VEC = np.array([np.sqrt(3)/2, 0, -0.5])
 
 class BlochSphere(manim.ThreeDScene):
     def get_bloch_sphere(self):
@@ -15,8 +15,19 @@ class BlochSphere(manim.ThreeDScene):
             x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], z_range=[-1.5, 1.5],
             x_length=3, y_length=3, z_length=3,
             axis_config={"tip_width":0.1, "tip_height":0.1, "include_ticks":False})
-        label = axes.get_z_axis_label(label=r"\vert{0}\rangle").scale(0.8)
-        return manim.VGroup(bloch_sphere, axes, label)
+        return manim.VGroup(bloch_sphere, axes)
+
+    def add_axis_labels(self):
+        self.zero_lbl = manim.Tex(r"$\vert{0}\rangle$").move_to(manim.UP*2.1+manim.RIGHT*0.4)
+        self.one_lbl = manim.Tex(r"$\vert{1}\rangle$").move_to(manim.DOWN*2.1+manim.RIGHT*0.4)
+        self.x_lbl = manim.Tex(r"$\vert{+x}\rangle$").move_to(manim.LEFT*2.3)
+        self.y_lbl = manim.Tex(r"$\vert{+y}\rangle$").move_to(manim.RIGHT*1.5+manim.DOWN*1.6)
+
+        self.add_fixed_in_frame_mobjects(self.zero_lbl)
+        self.add_fixed_in_frame_mobjects(self.one_lbl)
+        self.add_fixed_in_frame_mobjects(self.x_lbl)
+        self.add_fixed_in_frame_mobjects(self.y_lbl)
+
 
     def qubit(self, qubit:np.ndarray, **kwargs):
         return manim.Arrow3D(start=manim.ORIGIN, end=qubit, base_radius=0.05, height=0.1, **kwargs)
@@ -29,7 +40,7 @@ class BlochSphere(manim.ThreeDScene):
     
     def construct(self):
         # orient the camera
-        self.set_camera_orientation(phi=60 * manim.DEGREES, theta=140 * manim.DEGREES, zoom=1.7)
+        self.set_camera_orientation(phi=60 * manim.DEGREES, theta=70 * manim.DEGREES, zoom=1.7)
 
         # initialize objects
         bloch_sphere = self.get_bloch_sphere()
@@ -39,8 +50,9 @@ class BlochSphere(manim.ThreeDScene):
 
         # get and create the bloch sphere
         self.add(bloch_sphere)
+        self.add_axis_labels()
         self.wait(1)
-
+    
         # add the qubit to the frame
         t = self.title_text(r"Qubit is initialized on the $+z$ axis in the $\vert{0}\rangle$ state",  color=manim.YELLOW_C)
         self.add_fixed_in_frame_mobjects(t)
@@ -54,13 +66,14 @@ class BlochSphere(manim.ThreeDScene):
         self.add_fixed_in_frame_mobjects(t)
 
         # add the n axis
-        ax_lbl = manim.Tex(r"\textbf{n}", color=manim.RED_D).scale(0.8).move_to(manim.UP*1.7+manim.LEFT*1.5)
+        ax_lbl = manim.Tex(r"\textbf{n}", color=manim.RED_D).scale(0.8).move_to(manim.UP*1.5+manim.RIGHT*1.5)
         self.add_fixed_in_frame_mobjects(ax_lbl)
         self.play(manim.Create(n_ax))
         self.wait(1)
 
         # rotate the qubit about the n axis
-        self.play(manim.Rotate(qb, angle=7*np.pi/3, axis=N_VEC, about_point=manim.ORIGIN), run_time=2*7/3)
+        ROT_FACTOR = 11/14
+        self.play(manim.Rotate(qb, angle=ROT_FACTOR*7*np.pi/3, axis=N_VEC, about_point=manim.ORIGIN), run_time=2*7/3)
         self.remove(ax_lbl)
         self.play(manim.Uncreate(n_ax))
         self.remove(t)
@@ -71,13 +84,13 @@ class BlochSphere(manim.ThreeDScene):
         self.add_fixed_in_frame_mobjects(t)
 
         # create the z axis
-        ax_lbl = manim.Tex(r"$\textbf{z}$", color=manim.BLUE_D).scale(0.8).move_to(manim.UP*1.8+manim.RIGHT*0.3)
+        ax_lbl = manim.Tex(r"$\textbf{z}$", color=manim.BLUE_D).scale(0.8).move_to(manim.UP*1.8+manim.LEFT*0.3)
         self.add_fixed_in_frame_mobjects(ax_lbl)
         self.play(manim.Create(z_ax))
         self.wait(1)
 
         # rotate the qubit about the z axis
-        self.play(manim.Rotate(qb, angle=15*np.pi/6, axis=manim.OUT, about_point=manim.ORIGIN), run_time=2*15/6)
+        self.play(manim.Rotate(qb, angle=ROT_FACTOR*15*np.pi/6, axis=manim.OUT, about_point=manim.ORIGIN), run_time=2*15/6)
         self.remove(ax_lbl)
         self.play(manim.Uncreate(z_ax))
         self.remove(t)
