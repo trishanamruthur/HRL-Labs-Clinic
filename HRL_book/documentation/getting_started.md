@@ -162,6 +162,27 @@ F(\vec{r}) = -\nabla U(\vec{r})
 ```
 and this label can be referenced later on using ``` {eq}`example_label` ```, which renders as {eq}`example_label`.
 
+```{admonition} A Few Bugs
+:class: note, dropdown
+We have noticed two issues with labeling equations, and as of yet have not found a way to solve either. However, there are some workarounds. 
+
+Bug 1:
+
+Equation labels sometimes generate with no numbers, only empty parentheses. The empty parentheses are still a functional link, but it's very confusing.
+
+Suggested workarounds:
+
+You can use the ```\tag{tag-here}``` command in the LaTeX part of your equation to tag the equation with a name or number. This will not replace the markdown tag and will not create any link, but it will definitely show up, and you can manually reference the tag later when linking to the equation.
+
+Bug 2:
+
+Equation numbering is sitewide (when the numbers actually work). This doesn't lead to any loss of functionality, but it can be confusing to have the first equation of a page be "equation (5)" or similar. Note that equation numbering is not done by MathJax---MathJax has this capability, but Jupyter Book doesn't use it, since MathJax is used for each equation separately and thus can't keep track of every equation in order to number them consistently. I mention this because searching for solutions to this bug leads to more hits for MathJax than for Jupyter Book (which has basically nothing to say on the issue), but the MathJax suggested fixes are useless in this case.
+
+Suggested workarounds:
+
+Make sure you always use the ``` {eq}`example_label` ``` format when referencing equations and never manually reference their equation number---equation numbering may change without warning if other pages get new equations. It may be useful to manually ```\tag``` equations to make sure you have a static way to refer to them, even though that won't create an actual link.
+```
+
 ### Labels and References
 
 Labels and references are incredibly helpful for allowing users to jump around within the content of this book. Labeling of equations is shown above, but for every other text element markdown labels should be used _preceding the element being labeled_. For instance
