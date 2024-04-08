@@ -23,6 +23,7 @@ chapters:
 - file: documentation/intro.md
   sections:
   - file: documentation/getting_started.md
+  - file: documentation/table_of_contents.ipynb
   - file: documentation/animations_documentation/animations_tutorial.ipynb
   - file: documentation/animations_documentation/editing_animations.ipynb
   - file: documentation/video-embeds.ipynb
