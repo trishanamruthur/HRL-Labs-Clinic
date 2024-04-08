@@ -164,15 +164,15 @@ and this label can be referenced later on using ``` {eq}`example_label` ```, whi
 
 ```{admonition} A Few Bugs
 :class: note, dropdown
-We have noticed two issues with labeling equations, and as of yet have not found a way to solve either. However, there are some workarounds. 
+We have noticed two issues with labeling equations, and as of yet have not found a way to solve the second. Here are some fixes and workarounds. 
 
 Bug 1:
 
 Equation labels sometimes generate with no numbers, only empty parentheses. The empty parentheses are still a functional link, but it's very confusing.
 
-Suggested workarounds:
+Fix:
 
-You can use the ```\tag{tag-here}``` command in the LaTeX part of your equation to tag the equation with a name or number. This will not replace the markdown tag and will not create any link, but it will definitely show up, and you can manually reference the tag later when linking to the equation.
+Delete the ```_build``` folder before building. Equivalently (as far as we know), run ```jb clean HRL_book``` before building, or build with ```jb build --all HRL_book```.
 
 Bug 2:
 
