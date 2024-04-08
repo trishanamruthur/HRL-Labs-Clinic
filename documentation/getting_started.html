@@ -569,7 +569,7 @@ And here is a note in the margin!
 </section>
 <section id="equations">
 <h3>Equations<a class="headerlink" href="#equations" title="Link to this heading">#</a></h3>
-<p>Jupyter Book allows for easy embedding of <span class="math notranslate nohighlight">\(\LaTeX\)</span> equations within pages. For inline equations, you can use dollar signs just as you would in a LaTeX document: <code class="docutils literal notranslate"><span class="pre">$&lt;math</span> <span class="pre">goes</span> <span class="pre">here&gt;$</span></code>. This looks like <span class="math notranslate nohighlight">\(a=\frac{b}{c}\)</span>. For standalone equations you should use <code class="docutils literal notranslate"><span class="pre">{math}</span></code> directives, for instance</p>
+<p>Jupyter Book allows for easy embedding of <span class="math notranslate nohighlight">\(\LaTeX\)</span> equations within pages. It does this using <a class="reference external" href="https://docs.mathjax.org/en/latest/">MathJax</a>. For inline equations, you can use dollar signs just as you would in a LaTeX document: <code class="docutils literal notranslate"><span class="pre">$&lt;math</span> <span class="pre">goes</span> <span class="pre">here&gt;$</span></code>. This looks like <span class="math notranslate nohighlight">\(a=\frac{b}{c}\)</span>. For standalone equations you should use <code class="docutils literal notranslate"><span class="pre">{math}</span></code> directives, for instance</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{math}
 -\frac{\hbar^2}{2m}\nabla^2\ket{\psi} + V\ket{\psi} = i\hbar\frac{\partial}{\partial t}\ket{\psi}
 ```
@@ -590,6 +590,24 @@ F(\vec{r}) = -\nabla U(\vec{r})
 <div class="math notranslate nohighlight" id="equation-example-label">
 <span class="eqno">(3)<a class="headerlink" href="#equation-example-label" title="Link to this equation">#</a></span>\[F(\vec{r}) = -\nabla U(\vec{r})\]</div>
 <p>and this label can be referenced later on using <code class="docutils literal notranslate"><span class="pre">{eq}`example_label`</span></code>, which renders as <a class="reference internal" href="#equation-example-label">(3)</a>.</p>
+<p>You can create new commands in markdown cells in jupyter notebooks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$\newcommand{\span}{\text{span}}$
+
+We denote by $\span(u, v)$ the span of two vectors $u$ and $v$.
+</pre></div>
+</div>
+<p>When rendered, the `newcommand’ line is not shown.</p>
+<p>In markdown, we can write</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{math}
+\newcommand{\span}{\text{span}}
+\span(u, v)
+```
+</pre></div>
+</div>
+<p>which will render as</p>
+<div class="math notranslate nohighlight">
+\[\newcommand{\span}{\text{span}}
+\span(u, v)\]</div>
 </section>
 <section id="labels-and-references">
 <h3>Labels and References<a class="headerlink" href="#labels-and-references" title="Link to this heading">#</a></h3>

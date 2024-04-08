@@ -135,7 +135,7 @@ A render of this is shown in the margin here as well.
 
 ### Equations
 
-Jupyter Book allows for easy embedding of $\LaTeX$ equations within pages. For inline equations, you can use dollar signs just as you would in a LaTeX document: `$<math goes here>$`. This looks like $a=\frac{b}{c}$. For standalone equations you should use `{math}` directives, for instance
+Jupyter Book allows for easy embedding of $\LaTeX$ equations within pages. It does this using [MathJax](https://docs.mathjax.org/en/latest/). For inline equations, you can use dollar signs just as you would in a LaTeX document: `$<math goes here>$`. This looks like $a=\frac{b}{c}$. For standalone equations you should use `{math}` directives, for instance
 ````
 ```{math}
 -\frac{\hbar^2}{2m}\nabla^2\ket{\psi} + V\ket{\psi} = i\hbar\frac{\partial}{\partial t}\ket{\psi}
@@ -161,6 +161,27 @@ will render as
 F(\vec{r}) = -\nabla U(\vec{r})
 ```
 and this label can be referenced later on using ``` {eq}`example_label` ```, which renders as {eq}`example_label`.
+
+You can create new commands in markdown cells in jupyter notebooks as follows: 
+```
+$\newcommand{\span}{\text{span}}$
+
+We denote by $\span(u, v)$ the span of two vectors $u$ and $v$.
+```
+When rendered, the `newcommand' line is not shown. 
+
+In markdown, we can write
+````
+```{math}
+\newcommand{\span}{\text{span}}
+\span(u, v)
+```
+````
+which will render as 
+```{math}
+\newcommand{\span}{\text{span}}
+\span(u, v)
+```
 
 ### Labels and References
 
