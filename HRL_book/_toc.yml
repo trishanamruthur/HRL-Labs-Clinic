@@ -4,6 +4,11 @@
 format: jb-book
 root: intro
 chapters:
+- file: template-chapter/cover.md
+  sections:
+  - file: template-chapter/template-page/template.ipynb
+    sections:
+    - file: template-chapter/template-page/subpage.md
 - file: charge-stability/cover.md
   sections:
   - file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
