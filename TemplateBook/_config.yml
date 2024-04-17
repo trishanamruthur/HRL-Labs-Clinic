@@ -1,0 +1,61 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Template Book
+author: \'24 HRL Clinic Team
+logo: files/hrl-logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+# bibtex_bibfiles:
+#   - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/trishanamruthur/HRL-Labs-Clinic  # Online location of your book
+  path_to_book: TemplateBook  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links.
+                # If using a different branch than previously, you MUST delete it from your
+                # JupyterHub files or nbgitpuller will not be able to launch the notebook.
+
+html:
+  # provide link to repository
+  use_repository_button: true
+  # provide link to edit page. Users without edit rights can make a PR.
+  use_edit_page_button: true
+
+launch_buttons:
+  notebook_interface: "jupyterlab"  # or "classic" (will support markdown notebooks)
+  jupyterhub_url: "https://strong-honeybee-virtually.ngrok-free.app/"
+
+# require js for interactive plotting
+sphinx:
+  config:
+    html_js_files:
+    # these all use cdns---must have local packages available to server otherwise
+    # update these paths accordingly. See documentation/setup/gitlab.
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    - https://cdn.jsdelivr.net/npm/mathjs@12.3.2/lib/browser/math.min.js
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    html_extra_path: ['videos']
+
+# THIS ENABLES LATEX CLAUSES LIKE \begin{align} BUT IT CAUSES PROBLEMS WITH INLINE EXPRESSIONS
+# parse:
+#   myst_enable_extensions:
+#     - amsmath
+#     - amssymb
+#     - mathtools
+
+# This makes it so that notebooks that end in -dne.ipynb are not executed
+execute:
+  exclude_patterns:
+    - '*-dne.ipynb'

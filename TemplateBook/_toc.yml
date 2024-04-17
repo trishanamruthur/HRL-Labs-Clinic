@@ -2,24 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: cover.md
 chapters:
-- file: charge-stability/cover.md
+- file: TemplateChapter/cover.md
   sections:
-  - file: charge-stability/1-load-unload/loading-and-unloading-single-dot.ipynb
+  - file: TemplateChapter/TemplateSection/main.md
     sections:
-    - file: charge-stability/1-load-unload/tunneling.ipynb
-  - file: charge-stability/2-sensing-dot/sensing-dot
-  - file: charge-stability/3-double-dot/double-dot.ipynb
-  - file: charge-stability/4-qd-arrays/quantum-dot-arrays
-  - file: charge-stability/5-quiz/subtopicquiz.ipynb
-  - file: charge-stability/6-gloss/gloss
-  - file: charge-stability/7-paper-summary/papersummary
-  - file: charge-stability/8-spaghetti/spaghetti.ipynb
-  - file: charge-stability/roadmap.ipynb
-- file: quantum-information/cover.md
-  sections:
-  - file: quantum-information/1-bloch-sphere/bloch-sphere.ipynb
+    - file: TemplateChapter/TemplateSection/subpage.md
 - file: documentation/intro.md
   sections:
   - file: documentation/getting_started.md
@@ -28,7 +17,6 @@ chapters:
   - file: documentation/video-embeds.ipynb
   - file: documentation/quizzes.ipynb
   - file: documentation/sliders_tutorial.ipynb
-  - file: documentation/wall_of_truth.ipynb
   - file: documentation/github.md
   - file: documentation/setup/intro.md
     sections:

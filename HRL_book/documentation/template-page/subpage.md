@@ -1,3 +1,4 @@
+(subpage_template)=
 # Sub-page Template
 
 This is mostly to show you how the table of contents can support nested pages. See the `_toc.yml` document for more information.
